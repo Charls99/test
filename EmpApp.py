@@ -26,10 +26,13 @@ table = 'employee'
 def home():
     return render_template('Employee.html')
 
-@app.route("/Employee")
+@app.route("/Employees")
 def employee():
     return render_template('Employee.html')
 
+@app.route("/Add_employee")
+def attendance():
+    return render_template('Add_employee.html')
 
 @app.route("/Attendance")
 def attendance():
