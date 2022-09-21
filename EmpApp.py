@@ -31,12 +31,16 @@ def employee():
     return render_template('Employee.html')
 
 @app.route("/Add_employee")
-def attendance():
+def AddEmployee():
     return render_template('Add_employee.html')
 
 @app.route("/Attendance")
 def attendance():
     return render_template('Attendance.html')
+
+@app.route("/Save_Attendance")
+def addAttendance():
+    return render_template('Save_Attendance.html')
 
 
 @app.route("/addemp", methods=['POST'])
