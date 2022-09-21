@@ -16,3 +16,4 @@ python3 EmpApp.py
 
 Employee: read a list of employee
 Attendace: read a list of attendance
+Add_employee: add employee
