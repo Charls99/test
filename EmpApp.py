@@ -21,14 +21,14 @@ output = {}
 table = 'employee'
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/employee/", methods=['GET', 'POST'])
 def home():
+    return render_template('Employee.html')
+
+
+@app.route("/attendance/Attendance")
+def attendance():
     return render_template('Attendance.html')
-
-
-@app.route("/Department")
-def department():
-    return render_template('Department.html')
 
 
 @app.route("/addemp", methods=['POST'])
