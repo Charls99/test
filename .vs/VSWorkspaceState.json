@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\templates",
-    "\\templates\\assets",
-    "\\templates\\assets\\css"
+    "\\templates\\assets"
   ],
-  "SelectedNode": "\\EmpApp.py",
+  "SelectedNode": "\\config.py",
   "PreviewInSolutionExplorer": false
 }
