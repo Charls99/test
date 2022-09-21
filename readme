@@ -14,4 +14,4 @@ python3 EmpApp.py
 *remember set IAM role in EC2
 *at github need change the cd same as the respority
 
-
+Employee: read a list of employee
