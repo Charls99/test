@@ -42,8 +42,6 @@ def attendance():
 def addAttendance():
     return render_template('Save_Attendance.html')
 
-<<<<<<< HEAD
-=======
 @app.route("/Save", methods=['POST'])
 def AddEmpData():
     eid = request.form['eid']
@@ -103,7 +101,6 @@ def AddEmpData():
 
     print("all modification done...")
     return render_template('Add_employee.html')
->>>>>>> 1a99f603dc89ade6598c2c2723ea4a8349fecf6c
 
 
 if __name__ == '__main__':
