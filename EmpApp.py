@@ -98,7 +98,7 @@ def addEmployeeData():
 
 @app.route("/Attendance")
 def attendance():
-    print(db_conn)
+    return render_template('Attendance.html', name=db_conn)
 
 @app.route("/Save_Attendance")
 def addAttendance():
