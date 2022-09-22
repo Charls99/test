@@ -31,20 +31,10 @@ def home():
 def employee():
     return render_template('Employee.html')
 
-@app.route("/Add_employee")
-def AddEmployee():
-    return render_template('Add_employee.html')
-
-@app.route("/Attendance")
-def attendance():
-    return render_template('Attendance.html')
-
-@app.route("/Save_Attendance")
-def addAttendance():
-    return render_template('Save_Attendance.html')
-
-@app.route("/save", methods=['POST'])
-def AddEmpData():
+@app.route("/Add_employee", methods=['GET', 'POST'])
+def addEmployee():
+#add userdata when press submit button#
+    if request.method == 'POST':
     eid = request.form['eid']
     fname = request.form['fname']
     lname = request.form['lname']
@@ -102,6 +92,16 @@ def AddEmpData():
 
     print("all modification done...")
     return render_template('Add_employee.html')
+    else:
+       return render_template('Add_employee.html')
+
+@app.route("/Attendance")
+def attendance():
+    return render_template('Attendance.html')
+
+@app.route("/Save_Attendance")
+def addAttendance():
+    return render_template('Save_Attendance.html')
 
 # Initiating the application
 if __name__ == '__main__':
