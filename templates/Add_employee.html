@@ -242,7 +242,7 @@
 
                             <div class="card-body">
 
-                                <form action="AddEmpData" class="row" method="post">
+                                <form action="/AddEmpData" class="row" method="post" enctype="multipart/form-data">
                                     <div class="form-group col-md-3 m-t-20">
                                         <label>First Name</label>
                                         <input type="text" name="fname" class="form-control form-control-line" placeholder="Employee's FirstName" minlength="2" required>
@@ -567,7 +567,7 @@
 
     $(".select2").select2();
     </script>
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
 $('form').each(function() {
     $(this).validate({
     submitHandler: function(form) {
@@ -600,7 +600,7 @@ $('form').each(function() {
 });
 });
 
-    </script>
+    </script>-->
 
     <script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
