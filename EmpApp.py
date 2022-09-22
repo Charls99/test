@@ -4,6 +4,7 @@ import os
 import boto3
 from config import *
 
+# Flask constructor#
 app = Flask(__name__,static_folder="templates/assets")
 
 bucket = custombucket
@@ -21,7 +22,7 @@ output = {}
 table = 'employee'
 
 
-
+# Creating a route that has both GET and POST request methods
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('Employee.html')
@@ -42,7 +43,7 @@ def attendance():
 def addAttendance():
     return render_template('Save_Attendance.html')
 
-@app.route("/Save", methods=['POST'])
+@app.route("/save", methods=['POST'])
 def AddEmpData():
     eid = request.form['eid']
     fname = request.form['fname']
@@ -102,6 +103,7 @@ def AddEmpData():
     print("all modification done...")
     return render_template('Add_employee.html')
 
-
+# Initiating the application
 if __name__ == '__main__':
+ # Running the application and leaving the debug mode ON
     app.run(host='0.0.0.0', port=80, debug=True)
