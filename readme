@@ -11,6 +11,19 @@ pip3 install pymysql
 pip3 install boto3
 python3 EmpApp.py
 
+
+**extra https://www.thegeeksearch.com/setup-flask-with-apache-and-wsgi/
+(apache2)
+yum install httpd -y 2
+systemctl start httpd.service
+systemctl enable httpd.service
+https://dev.to/sm0ke/flask-deploy-with-apache-on-centos-minimal-setup-2kb7
+(wsgi)
+yum install mod_wsgi
+systemctl restart httpd
+pip3 install virtualenv
+
+
 AWS academy
 -------------
 email: chongky-wm19@student.tarc.edu.my
@@ -21,9 +34,9 @@ HeidiSQL
 username: hr_user
 password hruser123
 
-endpoint: hr-database.corvssd1k2vi.us-east-1.rds.amazonaws.com
+endpoint: employee.chumfw0fp4gr.us-east-1.rds.amazonaws.com
 
-employee.chumfw0fp4gr.us-east-1.rds.amazonaws.com
+
 
 CREATE TABLE `employee` (
 	`eid` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
