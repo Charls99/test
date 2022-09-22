@@ -35,22 +35,22 @@ def employee():
 def addEmployee():
 #add userdata when press submit button#
     if request.method == 'POST':
-    eid = request.form['eid']
-    fname = request.form['fname']
-    lname = request.form['lname']
-    dept = request.form['dept']
-    deg = request.form['deg']
-    role = request.form['role']
-    gender = request.form['gender']
-    blood = request.form['blood']
-    nid = request.form['nid']
-    contact = request.form['contact']
-    dob = request.form['dob']
-    joindate = request.form['joindate']
-    leavedate = request.form['leavedate']
-    username = request.form['username']
-    email = request.form['email']
-    image_url = request.files['image_url']
+       eid = request.form['eid']
+       fname = request.form['fname']
+       lname = request.form['lname']
+       dept = request.form['dept']
+       deg = request.form['deg']
+       role = request.form['role']
+       gender = request.form['gender']
+       blood = request.form['blood']
+       nid = request.form['nid']
+       contact = request.form['contact']
+       dob = request.form['dob']
+       joindate = request.form['joindate']
+       leavedate = request.form['leavedate']
+       username = request.form['username']
+       email = request.form['email']
+       image_url = request.files['image_url']
 
     insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
@@ -62,7 +62,7 @@ def addEmployee():
 
         cursor.execute(insert_sql, (eid, fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email))
         db_conn.commit()
-		#Set name for listout#
+        #Set name for listout#
         #emp_name = "" + first_name + " " + last_name 
         # Uplaod image file in S3 #
         emp_image_file_name_in_s3 = "emp-id-" + str(eid) + "_image_file"
