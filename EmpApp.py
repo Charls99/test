@@ -35,7 +35,7 @@ def employee():
 def addEmployee():
     return render_template('Add_employee.html')
 
-@app.route("/AddEmpData")
+@app.route("/AddEmpData", methods=['POST'])
 def addEmployeeData():
 #add userdata when press submit button#
     eid = request.form['eid']
