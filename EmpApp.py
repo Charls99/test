@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 from pymysql import connections
 import os
 import boto3
@@ -24,7 +24,7 @@ table = 'employee'
 
 # Creating a route that has both GET and POST request methods
 @app.route("/", methods=['GET', 'POST'])
-def home():
+def index():
     return render_template('Employee.html')
 
 @app.route("/Employees")
