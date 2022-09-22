@@ -62,12 +62,12 @@ def addEmployeeData():
 
     try:
 
-        cursor.execute(insert_sql, (eid, fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email))
+        cursor.execute(insert_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email))
         db_conn.commit()
         #Set name for listout#
-        #emp_name = "" + first_name + " " + last_name 
+        emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
-        emp_image_file_name_in_s3 = "emp-id-" + str(eid) + "_image_file"
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_name) + "_image_file"
         s3 = boto3.resource('s3')
 
         try:
