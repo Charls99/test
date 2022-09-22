@@ -98,7 +98,7 @@ def addEmployeeData():
 
 @app.route("/Attendance")
 def attendance():
-    return db_conn
+    print(db_conn)
 
 @app.route("/Save_Attendance")
 def addAttendance():
