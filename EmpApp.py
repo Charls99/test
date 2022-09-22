@@ -38,7 +38,6 @@ def addEmployee():
 @app.route("/AddEmpData", methods=['POST'])
 def addEmployeeData():
 #add userdata when press submit button#
-    eid = request.form['eid']
     fname = request.form['fname']
     lname = request.form['lname']
     dept = request.form['dept']
@@ -55,7 +54,7 @@ def addEmployeeData():
     email = request.form['email']
     image_url = request.files['image_url']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if image_url.filename == "":
