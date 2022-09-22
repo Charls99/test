@@ -34,7 +34,9 @@ def employee():
 @app.route("/Add_employee", methods=['GET', 'POST'])
 def addEmployee():
 #add userdata when press submit button#
-    if request.method == 'POST':
+    if request.method != 'POST':
+       return render_template('Add_employee.html')
+    else:
        eid = request.form['eid']
        fname = request.form['fname']
        lname = request.form['lname']
@@ -92,8 +94,7 @@ def addEmployee():
 
     print("all modification done...")
     return render_template('Add_employee.html')
-    else:
-       return render_template('Add_employee.html')
+    
 
 @app.route("/Attendance")
 def attendance():
