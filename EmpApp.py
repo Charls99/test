@@ -35,25 +35,13 @@ def addEmployee():
        #add userdata when press submit button#
        fname = request.form['fname']
        lname = request.form['lname']
-       dept = request.form['dept']
-       deg = request.form['deg']
-       role = request.form['role']
-       gender = request.form['gender']
-       blood = request.form['blood']
-       nid = request.form['nid']
-       contact = request.form['contact']
-       dob = request.form['dob']
-       joindate = request.form['joindate']
-       leavedate = request.form['leavedate']
-       username = request.form['username']
-       email = request.form['email']
     
-       insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+       insert_sql = "INSERT INTO test VALUES (%s, %s)"
        cursor = db_conn.cursor()
 
        try:
 
-        cursor.execute(insert_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email))
+        cursor.execute(insert_sql, (fname, lname))
         db_conn.commit()
 
        finally:
