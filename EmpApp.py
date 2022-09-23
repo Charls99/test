@@ -35,20 +35,33 @@ def addEmployee():
        #add userdata when press submit button#
        fname = request.form['fname']
        lname = request.form['lname']
+       eid = request.form['eid']
+       dept = request.form['dept']
+       deg = request.form['deg']
+       role = request.form['role']
+       gender = request.form['gender']
+       blood = request.form['blood']
+       nid = request.form['nid']
+       contact = request.form['contact']
+       dob = request.form['dob']
+       joindate = request.form['joindate']
+       leavedate = request.form['leavedate']
+       username = request.form['username']
+       email = request.form['email']
     
-       insert_sql = "INSERT INTO test VALUES (%s, %s)"
+       insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
 
        try:
 
-        cursor.execute(insert_sql, (fname, lname))
+        cursor.execute(insert_sql, (fname, lname, eid, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email))
         db_conn.commit()
 
        finally:
         cursor.close()
 
        print("all modification done...")
-    return render_template('Add_employee.html')
+       return render_template('Add_employee.html')
 
 
 @app.route("/AddEmpData", methods=['POST'])

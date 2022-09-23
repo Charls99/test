@@ -25,9 +25,9 @@ pip3 install virtualenv
 
 
 CREATE TABLE `employee` (
-	`eid` INT(10) NOT NULL AUTO_INCREMENT,
 	`fname` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`lname` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`eid` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`dept` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`deg` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`role` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
@@ -39,8 +39,7 @@ CREATE TABLE `employee` (
 	`joindate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`leavedate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`username` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
-	`email` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
-	PRIMARY KEY (`eid`) USING BTREE
+	`email` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci'
 )
 COLLATE='utf8mb4_0900_ai_ci'
 ENGINE=InnoDB
@@ -52,6 +51,7 @@ def addEmployee():
        #add userdata when press submit button#
        fname = request.form['fname']
        lname = request.form['lname']
+	   eid = request.form['eid']
        dept = request.form['dept']
        deg = request.form['deg']
        role = request.form['role']
@@ -65,12 +65,12 @@ def addEmployee():
        username = request.form['username']
        email = request.form['email']
     
-       insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+       insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
 
        try:
 
-        cursor.execute(insert_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email))
+        cursor.execute(insert_sql, (fname, lname, eid, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email))
         db_conn.commit()
 
        finally:

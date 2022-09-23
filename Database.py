@@ -26,6 +26,7 @@ def addEmployeeData():
 #add userdata when press submit button#
     fname = request.form['fname']
     lname = request.form['lname']
+    eid = request.form['eid']
     dept = request.form['dept']
     deg = request.form['deg']
     role = request.form['role']
@@ -40,7 +41,7 @@ def addEmployeeData():
     email = request.form['email']
     image_url = request.files['image_url']
 
-    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
     if image_url.filename == "":
@@ -48,7 +49,7 @@ def addEmployeeData():
 
     try:
 
-        cursor.execute(insert_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email))
+        cursor.execute(insert_sql, (fname, lname, eid, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email))
         db_conn.commit()
         #Set name for listout#
         emp_name = "" + fname + " " + lname
