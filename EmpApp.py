@@ -50,6 +50,7 @@ def addEmployee():
        leavedate = request.form['leavedate']
        username = request.form['username']
        email = request.form['email']
+       image_url = request.files['image_url']
     
        insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
