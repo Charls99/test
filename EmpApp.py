@@ -34,7 +34,6 @@ def employee():
 
     cursor.execute(search_sql)
     allemp = cursor.fetchall()
-    cursor.close()
     return render_template('Employee.html', allemp = allemp)
 
 @app.route("/Add_employee", methods=['GET', 'POST'])

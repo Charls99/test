@@ -148,7 +148,6 @@
                                         <thead>
                                             <tr>
                                                 <th>Employee Name</th>
-                                                <th>PIN</th>
                                                 <th>Email </th>
                                                 <th>Contact </th>
                                                 <th>User Type</th>
@@ -158,9 +157,8 @@
                                         <tbody>
                                             {% for emp in allemp %}
                                             <tr>
-                                                <td title=""></td>
-                                                <td>99</td>
-                                                <td>thoma@mail.com</td>
+                                                <td title="{{ emp['fname'] }}{{ emp['lname'] }}">{{ emp['fname'] }}{{ emp['lname'] }}</td>
+                                                <td>{{ emp['email'] }}</td>
                                                 <td>{{ emp['contact'] }}</td>
                                                 <td>{{ emp['role'] }}</td>
                                                 <td class="jsgrid-align-center ">
