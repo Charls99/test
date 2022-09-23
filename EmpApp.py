@@ -61,7 +61,7 @@ def addEmployee():
         cursor.close()
 
        print("all modification done...")
-       return render_template('Add_employee.html')
+    return render_template('Add_employee.html')
 
 
 @app.route("/AddEmpData", methods=['POST'])
