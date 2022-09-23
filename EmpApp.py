@@ -34,19 +34,19 @@ def addEmployee():
     if request.method == 'POST':
        fname = request.form['fname']
        lname = request.form['lname']
-
+    
        insert_sql = "INSERT INTO test VALUES (%s, %s)"
        cursor = db_conn.cursor()
 
-    try:
+       try:
 
         cursor.execute(insert_sql, (fname, lname))
         db_conn.commit()
 
-    finally:
+       finally:
         cursor.close()
 
-    print("all modification done...")
+       print("all modification done...")
     return render_template('Add_employee.html')
 
 
