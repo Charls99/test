@@ -126,13 +126,12 @@ def updateEmployee():
        dob = request.form['dob']
        joindate = request.form['joindate']
        leavedate = request.form['leavedate']
-       username = request.form['username']
        email = request.form['email']
        image_url = request.files['image_url']
     
-       update_sql = "UPDATE employee SET fname = %s, lname = %s, dept = %s, deg = %s, role = %s, gender = %s, blood = %s, nid = %s, contact = %s, dob = %s, joindate = %s, leavedate = %s, username = %s, email = %s where eid = %s"
+       update_sql = "UPDATE employee SET fname = %s, lname = %s, dept = %s, deg = %s, role = %s, gender = %s, blood = %s, nid = %s, contact = %s, dob = %s, joindate = %s, leavedate = %s, email = %s where eid = %s"
        cursor = db_conn.cursor()
-       cursor.execute(update_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email, eid))
+       cursor.execute(update_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, email, eid))
        db_conn.commit()
     return employee()
     
