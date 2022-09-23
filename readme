@@ -39,7 +39,7 @@ endpoint: employee.chumfw0fp4gr.us-east-1.rds.amazonaws.com
 
 
 CREATE TABLE `employee` (
-	`eid` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+	`eid` INT(10) NOT NULL AUTO_INCREMENT,
 	`fname` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`lname` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`dept` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
@@ -54,7 +54,7 @@ CREATE TABLE `employee` (
 	`leavedate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`username` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
 	`email` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
-	`image_url` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci'
+	PRIMARY KEY (`eid`) USING BTREE
 )
 COLLATE='utf8mb4_0900_ai_ci'
 ENGINE=InnoDB
