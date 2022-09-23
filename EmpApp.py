@@ -96,11 +96,19 @@ def addEmployee():
        #after store data return back#
     return render_template('Add_employee.html')
 
+@app.route("/Single_Employee/<int:empid>")
+def singleEmployee(empid):
+    search_sql = "SELECT * FROM employee where empid = ?"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql, (empid))
+    single_emp = cursor.fetchone()
+    return render_template('Single_Employee.html', single_emp = single_emp)
     
 
 @app.route("/Attendance")
 def attendance():
-    return render_template('Attendance.html', name=db_conn)
+    return render_template('Attendance.html')
 
 @app.route("/Save_Attendance")
 def addAttendance():
