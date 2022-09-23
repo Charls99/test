@@ -98,7 +98,7 @@ def addEmployee():
 
 @app.route("/Single_Employee/<eid>")
 def singleEmployee(eid):
-    search_sql = "SELECT * FROM employee where eid = ?"
+    search_sql = "SELECT * FROM employee where eid = %s"
     cursor = db_conn.cursor()
 
     cursor.execute(search_sql, (eid))
