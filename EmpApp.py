@@ -33,7 +33,6 @@ def employee():
     cursor = db_conn.cursor()
 
     cursor.execute(search_sql)
-    db_conn.commit()
     allemp = cursor.fetchall()
     cursor.close()
     return render_template('Employee.html', allemp = allemp)
