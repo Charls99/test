@@ -96,7 +96,7 @@ def addEmployee():
        #after store data return back#
     return render_template('Add_employee.html')
 
-@app.route("/Single_Employee/<str:eid>")
+@app.route("/Single_Employee/<eid>")
 def singleEmployee(eid):
     search_sql = "SELECT * FROM employee where eid = ?"
     cursor = db_conn.cursor()
