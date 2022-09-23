@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request, url_for
 from pymysql import connections
-import os
-import boto3
 from config import *
 
 # Flask constructor#
@@ -19,7 +17,7 @@ db_conn = connections.Connection(
 
 )
 output = {}
-table = 'test'
+table = 'employee'
 
 
 # Creating a route that has both GET and POST request methods
@@ -33,7 +31,27 @@ def employee():
 
 @app.route("/Add_employee")
 def addEmployee():
+    if request.method == 'POST':
+       fname = request.form['fname']
+       lname = request.form['lname']
+
+       insert_sql = "INSERT INTO test VALUES (%s, %s)"
+       cursor = db_conn.cursor()
+
+    if image_url.filename == "":
+        return "Please select a file"
+
+    try:
+
+        cursor.execute(insert_sql, (fname, lname))
+        db_conn.commit()
+
+    finally:
+        cursor.close()
+
+    print("all modification done...")
     return render_template('Add_employee.html')
+
 
 @app.route("/AddEmpData", methods=['POST'])
 def addEmployeeData():
