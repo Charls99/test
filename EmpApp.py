@@ -5,7 +5,10 @@ import boto3
 from config import *
 
 # Flask constructor#
-app = Flask(__name__,static_folder="templates/assets")
+# WSGI Application
+# Provide template folder name
+# The default folder name should be "templates" else need to mention custom folder name
+app = Flask(__name__,template_folder="templates", static_folder="static")
 
 bucket = custombucket
 region = customregion
@@ -98,6 +101,7 @@ def addEmployee():
 
 @app.route("/Single_Employee/<eid>")
 def singleEmployee(eid):
+    #Using %s to Prevent SQL Injection#
     search_sql = "SELECT * FROM employee where eid = %s"
     cursor = db_conn.cursor()
 
