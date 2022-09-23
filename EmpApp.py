@@ -109,15 +109,31 @@ def singleEmployee(eid):
     single_emp = cursor.fetchone()
     return render_template('Single_Employee.html', single_emp = single_emp)
 
-@app.route("/Delete_Employee/<eid>")
-def deleteEmployee(eid):
-    #Using %s to Prevent SQL Injection#
-    delete_sql = "Delete FROM employee where eid = %s"
-    cursor = db_conn.cursor()
-
-    cursor.execute(delete_sql, (eid))
-    db_conn.commit()
-    cursor.close()
+@app.route("/Update_Employee", methods=['GET', 'POST'])
+def updateEmployee():
+    if request.method == 'POST':
+       #add userdata when press submit button#
+       fname = request.form['fname']
+       lname = request.form['lname']
+       eid = request.form['eid']
+       dept = request.form['dept']
+       deg = request.form['deg']
+       role = request.form['role']
+       gender = request.form['gender']
+       blood = request.form['blood']
+       nid = request.form['nid']
+       contact = request.form['contact']
+       dob = request.form['dob']
+       joindate = request.form['joindate']
+       leavedate = request.form['leavedate']
+       username = request.form['username']
+       email = request.form['email']
+       image_url = request.files['image_url']
+    
+       update_sql = "UPDATE employee SET fname = %s, lname = %s, dept = %s, deg = %s, role = %s, gender = %s, blood = %s, nid = %s, contact = %s, dob = %s, joindate = %s, leavedate = %s, username = %s, email = %s where eid = %s"
+       cursor = db_conn.cursor()
+       cursor.execute(update_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email, eid))
+       db_conn.commit()
     return employee()
     
 
