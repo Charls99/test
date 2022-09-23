@@ -96,12 +96,12 @@ def addEmployee():
        #after store data return back#
     return render_template('Add_employee.html')
 
-@app.route("/Single_Employee/<int:empid>")
-def singleEmployee(empid):
-    search_sql = "SELECT * FROM employee where empid = ?"
+@app.route("/Single_Employee/<int:eid>")
+def singleEmployee(eid):
+    search_sql = "SELECT * FROM employee where eid = ?"
     cursor = db_conn.cursor()
 
-    cursor.execute(search_sql, (empid))
+    cursor.execute(search_sql, (eid))
     single_emp = cursor.fetchone()
     return render_template('Single_Employee.html', single_emp = single_emp)
     
