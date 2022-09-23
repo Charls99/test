@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\templates",
-    "\\templates\\assets"
+    "\\templates"
   ],
-  "SelectedNode": "\\config.py",
+  "SelectedNode": "\\EmpApp.py",
   "PreviewInSolutionExplorer": false
 }

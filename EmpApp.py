@@ -108,6 +108,17 @@ def singleEmployee(eid):
     cursor.execute(search_sql, (eid))
     single_emp = cursor.fetchone()
     return render_template('Single_Employee.html', single_emp = single_emp)
+
+@app.route("/Delete_Employee/<eid>")
+def deleteEmployee(eid):
+    #Using %s to Prevent SQL Injection#
+    delete_sql = "Delete FROM employee where eid = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(delete_sql, (eid))
+    db_conn.commit()
+    cursor.close()
+    return employee()
     
 
 @app.route("/Attendance")
