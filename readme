@@ -24,20 +24,6 @@ systemctl restart httpd
 pip3 install virtualenv
 
 
-AWS academy
--------------
-email: chongky-wm19@student.tarc.edu.my
-password: _AWSccassignment
-
-HeidiSQL
-------------
-username: hr_user
-password hruser123
-
-endpoint: employee.chumfw0fp4gr.us-east-1.rds.amazonaws.com
-
-
-
 CREATE TABLE `employee` (
 	`eid` INT(10) NOT NULL AUTO_INCREMENT,
 	`fname` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
