@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, url_for
 from pymysql import connections
+import os
+import boto3
 from config import *
 
 # Flask constructor#
@@ -59,7 +61,7 @@ def addEmployee():
         #Set name for listout#
         emp_name = "" + fname + " " + lname
         # Uplaod image file in S3 #
-        emp_image_file_name_in_s3 = "emp-id-" + str(emp_name) + "_image_file"
+        emp_image_file_name_in_s3 = "emp-id-" + str(eid) + "_image_file"
         s3 = boto3.resource('s3')
 
         try:
