@@ -29,7 +29,7 @@ def index():
 def employee():
     return render_template('Employee.html')
 
-@app.route("/Add_employee")
+@app.route("/Add_employee", methods=['GET', 'POST'])
 def addEmployee():
     if request.method == 'POST':
        fname = request.form['fname']
@@ -37,9 +37,6 @@ def addEmployee():
 
        insert_sql = "INSERT INTO test VALUES (%s, %s)"
        cursor = db_conn.cursor()
-
-    if image_url.filename == "":
-        return "Please select a file"
 
     try:
 
