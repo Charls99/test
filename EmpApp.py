@@ -29,7 +29,14 @@ def index():
 
 @app.route("/Employees")
 def employee():
-    return render_template('Employee.html')
+    search_sql = "SELECT * FROM employee"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql)
+    db_conn.commit()
+    allemp = cursor.fetchall()
+    cursor.close()
+    return render_template('Employee.html', allemp = allemp)
 
 @app.route("/Add_employee", methods=['GET', 'POST'])
 def addEmployee():
@@ -91,27 +98,6 @@ def addEmployee():
        #after store data return back#
     return render_template('Add_employee.html')
 
-
-@app.route("/AddEmpData", methods=['POST'])
-def addEmployeeData():
-#add userdata when press submit button#
-    fname = request.form['fname']
-    lname = request.form['lname']
-    dept = request.form['dept']
-    deg = request.form['deg']
-    role = request.form['role']
-    gender = request.form['gender']
-    blood = request.form['blood']
-    nid = request.form['nid']
-    contact = request.form['contact']
-    dob = request.form['dob']
-    joindate = request.form['joindate']
-    leavedate = request.form['leavedate']
-    username = request.form['username']
-    email = request.form['email']
-    image_url = request.files['image_url']
-
-    return fname
     
 
 @app.route("/Attendance")

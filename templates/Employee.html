@@ -155,19 +155,10 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <!-- <tfoot>
-                                               <tr>
-                                                <th>Employee Name</th>
-                                                <th>PIN</th>
-                                                <th>Email </th>
-                                                <th>Contact </th>
-                                                <th>User Type</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot> -->
                                         <tbody>
+                                            {% for emp in allemp %}
                                             <tr>
-                                                <td title="Thom Anderson">Thom Anderson</td>
+                                                <td title="{{ emp['fname'] + emp['lname'] }}">{{ emp['fname'] + emp['lname'] }}</td>
                                                 <td>99</td>
                                                 <td>thoma@mail.com</td>
                                                 <td>7856587870</td>
@@ -176,6 +167,7 @@
                                                     <a href="employee/view?I=U295MTMzMg==" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light"><i class="fa fa-pencil-square-o"></i></a>
                                                 </td>
                                             </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>
@@ -262,147 +254,6 @@
     <!-- <script type="text/javascript" src="assets/plugins/calendar/jquery-ui.min.js"></script> -->
     <script type="text/javascript" src="assets/plugins/calendar/dist/fullcalendar.min.js"></script>
     <script type="text/javascript" src="assets/plugins/calendar/dist/cal-init.js"></script>
-
-    <script type="text/javascript">
-        $(function () {
-            $('.mydatetimepicker').datepicker({
-            format: "mm-yyyy",
-            viewMode: "years",
-            minViewMode: "months"
-            });
-        });
-        $(function () {
-            $('.mydatetimepickerFull').datepicker({
-            format: "yyyy-mm-dd"
-            });
-        });
-    </script>
-    <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "columnDefs": [{
-                    "visible": false,
-                    "targets": 2
-                }],
-                "order": [
-                    [2, 'asc']
-                ],
-                "displayLength": 25,
-                "drawCallback": function(settings) {
-                    var api = this.api();
-                    var rows = api.rows({
-                        page: 'current'
-                    }).nodes();
-                    var last = null;
-                    api.column(2, {
-                        page: 'current'
-                    }).data().each(function(group, i) {
-                        if (last !== group) {
-                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
-                            last = group;
-                        }
-                    });
-                }
-            });
-            // Order by the grouping
-            $('#example tbody').on('click', 'tr.group', function() {
-                var currentOrder = table.order()[0];
-                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
-                    table.order([2, 'desc']).draw();
-                } else {
-                    table.order([2, 'asc']).draw();
-                }
-            });
-        });
-    });
-    $(function () {
-  $("#datepicker").datepicker({
-        autoclose: true,
-        todayHighlight: true
-  }).datepicker('update', new Date());
-});
-    jQuery('.mydatepicker, #datepicker').datepicker();
-    jQuery('#datepicker-autoclose').datepicker({
-        autoclose: true,
-        todayHighlight: true
-    });
-    $('#example23').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
-    $('#single-input').clockpicker({
-        placement: 'bottom',
-        align: 'left',
-        autoclose: true,
-        'default': 'now'
-    });
-    $('#single-input').clockpicker({
-        placement: 'bottom',
-        align: 'left',
-        autoclose: true,
-        'default': 'now'
-    });
-    $('.clockpicker').clockpicker({
-        donetext: 'Done',
-    }).find('input').change(function() {
-        console.log(this.value);
-    });
-    $('#check-minutes').click(function(e) {
-        // Have to stop propagation here
-        e.stopPropagation();
-        input.clockpicker('show').clockpicker('toggleView', 'minutes');
-    });
-
-
-
-
-    $(function() {
-    $('#datetimepicker2').datetimepicker({
-      language: 'en',
-      pick12HourFormat: true
-    });
-  });
-
-    $(".select2").select2();
-    </script>
-    <!--<script type="text/javascript">
-$('form').each(function() {
-    $(this).validate({
-    submitHandler: function(form) {
-        var formval = form;
-        var url = $(form).attr('action');
-
-        // Create an FormData object
-        var data = new FormData(formval);
-        $.ajax({
-            type: "POST",
-            enctype: 'multipart/form-data',
-            // url: "crud/Add_userInfo",
-            url: url,
-            data: data,
-            processData: false,
-            contentType: false,
-            cache: false,
-            timeout: 600000,
-            success: function (response) {
-                console.log(response);
-                $(".message").fadeIn('fast').delay(3000).fadeOut('fast').html(response);
-                $('form').trigger("reset");
-                window.setTimeout(function(){location.reload()},3000);
-            },
-            error: function (e) {
-                console.log(e);
-            }
-        });
-    }
-});
-});
-
-    </script>-->
 
     <script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
