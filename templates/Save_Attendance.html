@@ -87,7 +87,9 @@
                                             <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="emid" required>
 
                                                 <option value="">Select Here</option>
-                                                <option value="99">Thom Anderson</option>
+                                                {% for emp in allemp %}
+                                                <option value="{{ emp[2] }}">{{ emp[0] }} {{ emp[1] }}</option>
+                                                {% endfor %}
                                                 <!-- get user from SQL-->
                                             </select>
                                         </div>
@@ -203,6 +205,20 @@
     <!-- <script type="text/javascript" src="static/assets/plugins/calendar/jquery-ui.min.js"></script> -->
     <script type="text/javascript" src="static/assets/plugins/calendar/dist/fullcalendar.min.js"></script>
     <script type="text/javascript" src="static/assets/plugins/calendar/dist/cal-init.js"></script>
+
+    <script type="text/javascript">$(function () {
+            $('.mydatetimepicker').datepicker({
+            format: "mm-yyyy",
+            viewMode: "years",
+            minViewMode: "months"
+            });
+        });
+        $(function () {
+            $('.mydatetimepickerFull').datepicker({
+            format: "yyyy-mm-dd"
+            });
+        });</script>
+
 
     <script src="static/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 </body>

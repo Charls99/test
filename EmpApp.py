@@ -156,7 +156,13 @@ def addAttendance():
        cursor = db_conn.cursor()
        cursor.execute(insert_sql, (id, emid, attdate, signin, signout, place))
        db_conn.commit()
-    return render_template('Save_Attendance.html')
+
+    search_sql = "SELECT * FROM employee"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql)
+    allemp = cursor.fetchall()
+    return render_template('Save_Attendance.html', allemp = allemp)
 
 # Initiating the application
 if __name__ == '__main__':
