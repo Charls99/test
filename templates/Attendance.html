@@ -97,9 +97,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {% for attend in allattend, for emp in single_emp %}
+                                            {% for attend in allattend %}
                                             <tr>
-                                                <td><mark>{{ emp[0] }} {{ emp[1] }}</mark></td>
+                                                <td><mark>{{ attend[0] }} {{ attend[1] }}</mark></td>
                                                 <td>{{ attend[1] }}</td>
                                                 <td>{{ attend[2] }}</td>
                                                 <td>{{ attend[3] }}</td>
