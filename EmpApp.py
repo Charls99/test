@@ -138,7 +138,21 @@ def updateEmployee():
 
 @app.route("/Attendance")
 def attendance():
-    return render_template('Attendance.html')
+    search_sql = "SELECT * FROM attendance"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql)
+    allattend = cursor.fetchall()
+
+    for emp in allattend:
+        eid = emp[1]
+        search_sql = "SELECT fname, lname FROM employee where eid = %s"
+        cursor = db_conn.cursor()
+
+        cursor.execute(search_sql, (eid))
+        single_emp = cursor.fetchall()
+
+    return render_template('Attendance.html', allattend = allattend, single_emp = single_emp)
 
 @app.route("/Save_Attendance", methods=['GET', 'POST'])
 def addAttendance():

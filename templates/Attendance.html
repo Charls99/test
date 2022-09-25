@@ -93,34 +93,22 @@
                                                 <th>Date </th>
                                                 <th>Sign In</th>
                                                 <th>Sign Out</th>
-                                                <th>Working Hour</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <!-- <tfoot>
-                                            <tr>
-                                                <th>Employee Name</th>
-                                                <th>PIN</th>
-                                                <th>Date </th>
-                                                <th>Sign In</th>
-                                                <th>Sign Out</th>
-                                                <th>Working Hour</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot> -->
                                         <tbody>
+                                            {% for attend in allattend, for emp in single_emp %}
                                             <tr>
-                                                <td><mark>Will Williams</mark></td>
-                                                <td>123456</td>
-                                                <td>2021-12-01</td>
-                                                <td>09:00:00</td>
-                                                <td>04:30:00</td>
-                                                <td>4.5</td>
+                                                <td><mark>{{ emp[0] }} {{ emp[1] }}</mark></td>
+                                                <td>{{ attend[1] }}</td>
+                                                <td>{{ attend[2] }}</td>
+                                                <td>{{ attend[3] }}</td>
+                                                <td>{{ attend[4] }}</td>
                                                 <td class="jsgrid-align-center ">
                                                     <a href="unsaved:///Save_Attendance?A=1014" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light" data-value="Approve"><i class="fa fa-pencil-square-o"></i></a>
                                                 </td>
                                             </tr>
-
+                                            {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>
