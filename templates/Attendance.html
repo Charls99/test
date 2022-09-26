@@ -99,7 +99,7 @@
                                         <tbody>
                                             {% for attend in allattend %}
                                             <tr>
-                                                <td><mark>{{ attend[0] }} {{ attend[1] }}</mark></td>
+                                                <td><mark>{{ getEmpName(attend[1]) }}</mark></td>
                                                 <td>{{ attend[1] }}</td>
                                                 <td>{{ attend[2] }}</td>
                                                 <td>{{ attend[3] }}</td>

@@ -138,13 +138,13 @@ def updateEmployee():
 
 @app.route("/Attendance")
 def attendance():
-    search_sql = "SELECT * FROM attendance A, employee E where A.emid = E.eid"
+    search_sql = "SELECT * FROM attendance"
     cursor = db_conn.cursor()
 
     cursor.execute(search_sql)
-    allattend = cursor.fetchall()
-
+    allattend = cursor.fetchall()  
     return render_template('Attendance.html', allattend = allattend)
+
 
 @app.route("/Save_Attendance", methods=['GET', 'POST'])
 def addAttendance():
@@ -169,6 +169,18 @@ def addAttendance():
     cursor.execute(search_sql)
     allemp = cursor.fetchall()
     return render_template('Save_Attendance.html', allemp = allemp)
+
+@app.context_processor
+def utility_processor():
+    def getEmpName(empid):
+        search_sql = "SELECT * FROM employee where eid = %s"
+        cursor = db_conn.cursor()
+
+        cursor.execute(search_sql, (eid))
+        single_emp = cursor.fetchone()
+        name = single_emp[0] + single_emp[1]
+        return empName
+    return dict(getEmpName=getEmpName)
 
 # Initiating the application
 if __name__ == '__main__':
