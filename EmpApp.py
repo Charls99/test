@@ -178,17 +178,17 @@ def leave():
 def addLeave():
     if request.method == 'POST':
        #add userdata when press submit button#
-       lemid = request.form['lemid']
-       leavetype = request.form['leavetype']
-       leaveSdate = request.form['leaveSdate']
-       leaveEdate = request.form['leaveEdate']
+       em_id = request.form['em_id']
+       leave_type = request.form['leave_type']
+       start_date = request.form['start_date']
+       end_date = request.form['end_date']
        reason = request.form['reason']
-       lid = request.form['lid']
+       id = request.form['id']
        
     
        insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
-       cursor.execute(insert_sql, (lid, lemid, leavetype, leaveSdate, leaveEdate, reason))
+       cursor.execute(insert_sql, (id, em_id, leave_type, start_date, end_date, reason))
        db_conn.commit()
 
     search_sql = "SELECT * FROM employee"

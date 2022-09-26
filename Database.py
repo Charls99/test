@@ -35,17 +35,13 @@ AUTO_INCREMENT=4
 ;
 
 CREATE TABLE `leave` (
-	`id` INT(10) NOT NULL AUTO_INCREMENT,
-	`emid` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
-	`leavetype` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
-	`leaveSdate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
-	`leaveEdate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
-	`reason` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
-	PRIMARY KEY (`id`) USING BTREE
-)
-COLLATE='utf8mb4_0900_ai_ci'
-ENGINE=InnoDB
-;
+  `id` int(11) NOT NULL,
+  `em_id` varchar(64) DEFAULT NULL,
+  `leave_type` varchar(64) DEFAULT NULL,
+  `start_date` varchar(64) DEFAULT NULL,
+  `end_date` varchar(64) DEFAULT NULL,
+  `reason` varchar(1024) DEFAULT NULL
+) ENGINE=InnoDB;
 
 
 

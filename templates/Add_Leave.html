@@ -83,7 +83,7 @@
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label>Employee</label>
-                                            <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="lemid" required>
+                                            <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="em_id" required>
 
                                                 <option value="">Select Here</option>
                                                 {% for emp in allemp %}
@@ -94,7 +94,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Leave Type</label>
-                                            <select class="form-control custom-select" tabindex="1" name="leavetype" id="leavetype" required>
+                                            <select class="form-control custom-select" tabindex="1" name="leave_type" id="leave_type" required>
                                                 <option value="">Select Here..</option>
                                                 <option value="Leave without Pay">Leave without Pay</option>
                                                 <option value="Optional Leave">Optional Leave</option>
@@ -108,12 +108,12 @@
                                         </div>
                                         <label>Date: </label>
                                         <div id="" class="input-group date">
-                                            <input name="leaveSdate" class="form-control mydatetimepickerFull" value="" required>
+                                            <input name="start_date" class="form-control mydatetimepickerFull" value="" required>
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                         </div>
                                         <label>End Date: </label>
                                         <div id="" class="input-group date">
-                                            <input name="leaveEdate" class="form-control mydatetimepickerFull" value="" required>
+                                            <input name="end_date" class="form-control mydatetimepickerFull" value="" required>
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                         </div>
                                         <div class="form-group">
