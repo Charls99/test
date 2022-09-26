@@ -172,11 +172,6 @@ def addAttendance():
 
 @app.route("/Leave")
 def leave(): 
-    search_sql = "SELECT * FROM leave"
-    cursor = db_conn.cursor()
-
-    cursor.execute(search_sql)
-    allleave = cursor.fetchall() 
     return render_template('Leave.html', allleave = allleave)
 
 
