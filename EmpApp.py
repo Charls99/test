@@ -176,28 +176,8 @@ def leave():
 
 
 @app.route("/Add_Leave", methods=['GET', 'POST'])
-def addAttendance():
-    if request.method == 'POST':
-       #add userdata when press submit button#
-       emid = request.form['emid']
-       attdate = request.form['attdate']
-       signin = request.form['signin']
-       signout = request.form['signout']
-       place = request.form['place']
-       id = request.form['id']
-       
-    
-       insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s, %s, %s, %s)"
-       cursor = db_conn.cursor()
-       cursor.execute(insert_sql, (id, emid, attdate, signin, signout, place))
-       db_conn.commit()
-
-    search_sql = "SELECT * FROM employee"
-    cursor = db_conn.cursor()
-
-    cursor.execute(search_sql)
-    allemp = cursor.fetchall()
-    return render_template('Save_Attendance.html', allemp = allemp)
+def addLeave():
+    return render_template('Add_Leave.html')
 
 
 @app.context_processor
