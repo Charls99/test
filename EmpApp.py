@@ -177,7 +177,27 @@ def leave():
 
 @app.route("/Add_Leave", methods=['GET', 'POST'])
 def addLeave():
-    return render_template('Add_Leave.html')
+    if request.method == 'POST':
+       #add userdata when press submit button#
+       emid = request.form['emid']
+       leavetype = request.form['leavetype']
+       leaveSdate = request.form['leaveSdate']
+       leaveEdate = request.form['leaveEdate']
+       reason = request.form['reason']
+       id = request.form['id']
+       
+    
+       insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s, %s)"
+       cursor = db_conn.cursor()
+       cursor.execute(insert_sql, (id, emid, leavetype, leaveSdate, leaveEdate, reason))
+       db_conn.commit()
+
+    search_sql = "SELECT * FROM employee"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql)
+    allemp = cursor.fetchall()
+    return render_template('Add_Leave.html', allemp = allemp)
 
 
 @app.context_processor
