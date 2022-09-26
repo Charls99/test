@@ -107,7 +107,7 @@ def addEmployee():
         cursor.close()
 
        emid = eid
-       typeid = Monthly
+       typeid = "Monthly"
        total = 0
 
        insert_sql = "INSERT INTO salary VALUES (%s, %s, %s, %d)"
