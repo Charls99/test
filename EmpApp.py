@@ -186,7 +186,7 @@ def addLeave():
        id = request.form['id']
        
     
-       insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s, %s)"
+       insert_sql = "INSERT INTO empLeave VALUES (%s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
        cursor.execute(insert_sql, (id, em_id, leave_type, start_date, end_date, reason))
        db_conn.commit()
