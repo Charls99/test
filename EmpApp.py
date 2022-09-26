@@ -251,7 +251,7 @@ def utility_processor():
         name = single_emp[0] +" "+ single_emp[1]
         return name
 
-    return dict(getEmpName=getEmpNamey)
+    return dict(getEmpName=getEmpName)
 
 # Initiating the application
 if __name__ == '__main__':
