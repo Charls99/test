@@ -43,6 +43,20 @@ CREATE TABLE `leave` (
   `reason` varchar(1024) DEFAULT NULL
 ) ENGINE=InnoDB;
 
+CREATE TABLE `salary` (
+	`sid` INT(10) NOT NULL AUTO_INCREMENT,
+	`typeid` VARCHAR(50) NULL DEFAULT NULL,
+	`total` DOUBLE NULL DEFAULT NULL,
+	`basic` DOUBLE NULL DEFAULT NULL,
+	`houserent` DOUBLE NULL DEFAULT NULL,
+	`medical` DOUBLE NULL DEFAULT NULL,
+	`conveyance` DOUBLE NULL DEFAULT NULL,
+	`emid` VARCHAR(50) NULL DEFAULT NULL
+)
+COLLATE='utf8mb4_0900_ai_ci'
+ENGINE=InnoDB
+;
+
 
 
 @app.route("/AddEmpData", methods=['POST'])
