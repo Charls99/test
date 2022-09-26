@@ -178,7 +178,7 @@ def utility_processor():
 
         cursor.execute(search_sql, (empid))
         single_emp = cursor.fetchone()
-        name = single_emp[0] + single_emp[1]
+        name = single_emp[0] +" "+ single_emp[1]
         return name
     return dict(getEmpName=getEmpName)
 
