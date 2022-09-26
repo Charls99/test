@@ -133,7 +133,6 @@ def updateEmployee():
        cursor = db_conn.cursor()
        cursor.execute(update_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, email, eid))
        db_conn.commit()
-       cursor.close()
     return employee()
     
 
@@ -163,7 +162,6 @@ def addAttendance():
        cursor = db_conn.cursor()
        cursor.execute(insert_sql, (id, emid, attdate, signin, signout, place))
        db_conn.commit()
-       cursor.close()
 
     search_sql = "SELECT * FROM employee"
     cursor = db_conn.cursor()
@@ -181,17 +179,17 @@ def leave():
 def addLeave():
     if request.method == 'POST':
        #add userdata when press submit button#
-       emid = request.form['emid']
+       lemid = request.form['lemid']
        leavetype = request.form['leavetype']
        leaveSdate = request.form['leaveSdate']
        leaveEdate = request.form['leaveEdate']
        reason = request.form['reason']
-       id = request.form['id']
+       lid = request.form['lid']
        
     
-       insert_sql = "INSERT INTO leave VALUES (%d, %s, %s, %s, %s, %s)"
+       insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
-       cursor.execute(insert_sql, (id, emid, leavetype, leaveSdate, leaveEdate, reason))
+       cursor.execute(insert_sql, (lid, lemid, leavetype, leaveSdate, leaveEdate, reason))
        db_conn.commit()
 
     search_sql = "SELECT * FROM employee"
