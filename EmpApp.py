@@ -184,12 +184,11 @@ def addLeave():
        leaveSdate = request.form['leaveSdate']
        leaveEdate = request.form['leaveEdate']
        reason = request.form['reason']
-       lid = request.form['lid']
        
     
-       insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s, %s)"
+       insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
-       cursor.execute(insert_sql, (lid, lemid, leavetype, leaveSdate, leaveEdate, reason))
+       cursor.execute(insert_sql, (lemid, leavetype, leaveSdate, leaveEdate, reason))
        db_conn.commit()
 
     search_sql = "SELECT * FROM employee"
