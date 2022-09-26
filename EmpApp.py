@@ -133,6 +133,7 @@ def updateEmployee():
        cursor = db_conn.cursor()
        cursor.execute(update_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, email, eid))
        db_conn.commit()
+       cursor.close()
     return employee()
     
 
@@ -162,6 +163,7 @@ def addAttendance():
        cursor = db_conn.cursor()
        cursor.execute(insert_sql, (id, emid, attdate, signin, signout, place))
        db_conn.commit()
+       cursor.close()
 
     search_sql = "SELECT * FROM employee"
     cursor = db_conn.cursor()
@@ -187,7 +189,7 @@ def addLeave():
        id = request.form['id']
        
     
-       insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s, %s)"
+       insert_sql = "INSERT INTO leave VALUES (%d, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
        cursor.execute(insert_sql, (id, emid, leavetype, leaveSdate, leaveEdate, reason))
        db_conn.commit()
