@@ -1,4 +1,5 @@
-﻿
+﻿{% from "sidebar.html" import sidebar%}
+{% from "header.html" import header%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,170 +46,11 @@
     </div>
     <div id="main-wrapper">
         <header class="topbar">
-            <nav class="navbar top-navbar navbar-expand-md navbar-light">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="">
-                        <b>
-                            <img src="../static/assets/images/hricn.png" alt="DRI" class="DRI-logo" style="width:50px;" />
-                        </b>
-                        <!-- Logo text --><span>
-                            <img src="../static/assets/images/hrtag.png" alt="homepage" class="dark-logo" height="60px" width="100px" />
-                            <!-- Light Logo text -->
-                        </span>
-                    </a>
-                </div>
-                <div class="navbar-collapse">
-                    <ul class="navbar-nav mr-auto mt-md-0">
-                        <!-- This is  -->
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
-                        <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-bell"></i>
-                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
-                            </a>
-                            <div class="dropdown-menu mailbox scale-up-left">
-                                <ul>
-                                    <li>
-                                        <div class="drop-title">Notifications</div>
-                                    </li>
-                                    <li>
-                                        <div class="message-center">
-                                            <!-- Message -->
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav my-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../static/assets/images/users/userav-min.png" alt="Genit" class="profile-pic" style="height:40px;width:40px;border-radius:50px" /></a>
-                            <div class="dropdown-menu dropdown-menu-right scale-up">
-                                <ul class="dropdown-user">
-                                    <li>
-                                        <div class="dw-user-box">
-                                            <div class="u-img"><img src="../static/assets/images/users/userav-min.png" alt="user"></div>
-                                            <div class="u-text">
-                                                <h4>Thom Anderson</h4>
-                                                <p class="text-muted">thoma@mail.com</p>
-                                            </div>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="employee/view?I=U295MTMzMg=="><i class="ti-user"></i> My Profile</a></li>
-
-                                    <li><a href="settings/Settings"><i class="ti-settings"></i> Account Setting</a></li>
-                                    <li><a href="login/logout"><i class="fa fa-power-off"></i> Logout</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+            {{ header() }}
         </header>
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- User profile -->
-
-                <div class="user-profile">
-                    <!-- User profile image -->
-                    <div class="profile-img">
-                        <img src="../static/assets/images/users/userav-min.png" alt="user" />
-                        <!-- this is blinking heartbit-->
-                        <!-- <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div> -->
-                    </div>
-
-                    <!-- User profile text-->
-                    <div class="profile-text">
-                        <h5>Thom Anderson</h5>
-                        <a href="settings/Settings" class="dropdown-toggle u-dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="mdi mdi-settings"></i></a>
-                        <a href="login/logout" class="" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
-                    </div>
-                </div>
-                <!-- End User profile text-->
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="nav-devider"></li>
-                        <li> <a href=""><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a></li>
-                        <li>
-                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-building-o"></i><span class="hide-menu">Organization </span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="organization/Department">Department </a></li>
-                                <li><a href="organization/Designation">Designation</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Employees </span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="employee/Employees">Employees </a></li>
-                                <li><a href="employee/Disciplinary">Disciplinary </a></li>
-                                <li><a href="employee/Inactive_Employee">Inactive User </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-clipboard-text"></i><span class="hide-menu">Attendance </span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="attendance/Attendance">Attendance List </a></li>
-                                <li><a href="attendance/Save_Attendance">Add Attendance </a></li>
-                                <li><a href="attendance/Attendance_Report">Attendance Report </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-off"></i><span class="hide-menu">Leave </span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="leave/Holidays"> Holiday </a></li>
-                                <li><a href="leave/leavetypes"> Leave Type</a></li>
-                                <li><a href="leave/Application"> Leave Application </a></li>
-                                <li><a href="leave/Earnedleave"> Earned Leave </a></li>
-                                <li><a href="leave/Leave_report"> Report </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-briefcase-check"></i><span class="hide-menu">Project </span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="Projects/All_Projects">Projects </a></li>
-                                <li><a href="Projects/All_Tasks"> Task List </a></li>
-                                <li><a href="Projects/Field_visit"> Field Visit</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Payroll </span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <!--<li><a href="Payroll/Salary_Type"> Payroll Type </a></li>-->
-                                <li><a href="Payroll/Salary_List"> Payroll List </a></li>
-                                <li><a href="Payroll/Generate_salary"> Generate Payslip</a></li>
-                                <li><a href="Payroll/Payslip_Report"> Payslip Report</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-cash"></i><span class="hide-menu">Loan </span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="Loan/View"> Grant Loan </a></li>
-                                <li><a href="Loan/installment"> Loan Installment</a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-grid"></i><span class="hide-menu">Assets </span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="Logistice/Assets_Category"> Assets Category </a></li>
-                                <li><a href="Logistice/All_Assets"> Asset List </a></li>
-                                <!--<li><a href="Logistice/View"> Logistic Support List </a></li>-->
-                                <li><a href="Logistice/logistic_support"> Logistic Support </a></li>
-                            </ul>
-                        </li>
-
-                        <li> <a href="notice/All_notice"><i class="mdi mdi-clipboard"></i><span class="hide-menu">Notice <span class="hide-menu"></a></li>
-                        <li> <a href="settings/Settings"><i class="mdi mdi-settings"></i><span class="hide-menu">Settings <span class="hide-menu"></a></li>
-                    </ul>
-                </nav>
-                <!-- End Sidebar navigation -->
-            </div>
+            {{ sidebar() }}
             <!-- End Sidebar scroll-->
         </aside>                     <div class="page-wrapper">
             <div class="message"></div>
