@@ -78,7 +78,7 @@ def addEmployee():
        cursor.execute(search_sql, (eid))
        existing_userID = cursor.fetchone()
        if existing_userID:
-           return render_template('Add_employee.html', registererror = "Employee Code already taken, try different Employee Code")
+           return render_template('Add_employee.html', registererror = "<div class='alert alert-danger' role='alert'>Employee Code already taken, try different Employee Code</div>")
     
        insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
