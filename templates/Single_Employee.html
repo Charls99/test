@@ -263,7 +263,7 @@
                                                     <div class="form-group col-md-6 m-t-5">
                                                         <label class="control-label">Salary Type</label>
                                                         <select class="form-control  custom-select" data-placeholder="Choose a Category" tabindex="1" name="typeid" required>
-                                                            <option value="" selected>Choose Type...</option>
+                                                            <option value="{{ getEmpSalary(single_emp[2]) }}" selected>{{ getEmpSalary(single_emp[2]) }}</option>
                                                             <option value="Monthly">Monthly</option>
                                                             <option value="Daily">Daily</option>
                                                             <option value="Hourly">Hourly</option>
@@ -273,29 +273,10 @@
                                                     </div>
                                                     <div class="form-group col-md-6 m-t-5">
                                                         <label>Total Salary</label>
-                                                        <input type="text" name="total" class="form-control form-control-line total" placeholder="Total Salary" value="{{ getEmpSalary(single_emp[2]) }}" minlength="3" required>
+                                                        <input type="text" name="total" class="form-control form-control-line total" placeholder="Total Salary" value="{{ getEmpSalary(single_emp[3]) }}" minlength="3" required>
                                                     </div>
                                                 </div>
 
-                                                <h3 class="card-title">Addition</h3>
-                                                <div class="row">
-                                                    <div class="form-group col-md-6 m-t-5">
-                                                        <label>Basic</label>
-                                                        <input type="text" name="basic" class="form-control form-control-line basic" placeholder="Basic..." value="">
-                                                    </div>
-                                                    <div class="form-group col-md-6 m-t-5">
-                                                        <label>House Rent</label>
-                                                        <input type="text" name="houserent" class="form-control form-control-line houserent" placeholder="House Rent..." value="">
-                                                    </div>
-                                                    <div class="form-group col-md-6 m-t-5">
-                                                        <label>Medical</label>
-                                                        <input type="text" name="medical" class="form-control form-control-line medical" placeholder="Medical..." value="">
-                                                    </div>
-                                                    <div class="form-group col-md-6 m-t-5">
-                                                        <label>Conveyance</label>
-                                                        <input type="text" name="conveyance" class="form-control form-control-line conveyance" placeholder="Conveyance..." value="">
-                                                    </div>
-                                                </div>
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
                                                         <input type="hidden" name="emid" value="{{single_emp[2]}}">
@@ -321,16 +302,6 @@
         </div>
 
     </div>
-
-    <script type="text/javascript">
-          $('.total').on('input',function() {
-            var amount = parseInt($('.total').val());
-            $('.basic').val((amount * .50 ? amount * .50 : 0).toFixed(2));
-            $('.houserent').val((amount * .40 ? amount * .40 : 0).toFixed(2));
-            $('.medical').val((amount * .05 ? amount * .05 : 0).toFixed(2));
-            $('.conveyance').val((amount * .05 ? amount * .05 : 0).toFixed(2));
-          });
-    </script>
 
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../static/assets/plugins/bootstrap/js/popper.min.js"></script>
