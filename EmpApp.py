@@ -172,7 +172,7 @@ def addAttendance():
 
 @app.route("/Leave")
 def leave(): 
-    return render_template('Leave.html', allleave = allleave)
+    return render_template('Leave.html')
 
 
 @app.route("/Add_Leave", methods=['GET', 'POST'])
