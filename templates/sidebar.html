@@ -1,4 +1,4 @@
-﻿{% macro  sidebar()  %}
+﻿{% macro sidebar() %}
 
 <div class="scroll-sidebar">
     <!-- User profile -->
@@ -14,7 +14,8 @@
         <!-- User profile text-->
         <div class="profile-text">
             <h5>Thom Anderson</h5>
-            <a href="settings/Settings" class="dropdown-toggle u-dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="mdi mdi-settings"></i></a>
+            <a href="settings/Settings" class="dropdown-toggle u-dropdown" role="button" aria-haspopup="true"
+                aria-expanded="true"><i class="mdi mdi-settings"></i></a>
             <a href="login/logout" class="" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
         </div>
     </div>
@@ -25,14 +26,24 @@
             <li class="nav-devider"></li>
             <li> <a href=""><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a></li>
             <li>
-                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-building-o"></i><span class="hide-menu">Organization </span></a>
+                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        class="mdi mdi-clipboard-text"></i><span class="hide-menu">Attendance </span></a>
+                <ul aria-expanded="false" class="collapse">
+                    <li><a href="{{url_for('profile')}}">Profile </a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        class="fa fa-building-o"></i><span class="hide-menu">Organization </span></a>
                 <ul aria-expanded="false" class="collapse">
                     <li><a href="organization/Department">Department </a></li>
                     <li><a href="organization/Designation">Designation</a></li>
                 </ul>
             </li>
             <li>
-                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Employees </span></a>
+                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        class="mdi mdi-account-multiple"></i><span class="hide-menu">Employees </span></a>
                 <ul aria-expanded="false" class="collapse">
                     <li><a href="{{url_for('employee')}}">Employees </a></li>
                     <li><a href="Disciplinary">Disciplinary </a></li>
@@ -40,7 +51,8 @@
                 </ul>
             </li>
             <li>
-                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-clipboard-text"></i><span class="hide-menu">Attendance </span></a>
+                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        class="mdi mdi-clipboard-text"></i><span class="hide-menu">Attendance </span></a>
                 <ul aria-expanded="false" class="collapse">
                     <li><a href="{{url_for('attendance')}}">Attendance List </a></li>
                     <li><a href="{{url_for('addAttendance')}}">Add Attendance </a></li>
@@ -48,7 +60,8 @@
                 </ul>
             </li>
             <li>
-                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-account-off"></i><span class="hide-menu">Leave </span></a>
+                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        class="mdi mdi-account-off"></i><span class="hide-menu">Leave </span></a>
                 <ul aria-expanded="false" class="collapse">
                     <li><a href="leave/Holidays"> Holiday </a></li>
                     <li><a href="leave/leavetypes"> Leave Type</a></li>
@@ -58,7 +71,8 @@
                 </ul>
             </li>
             <li>
-                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-briefcase-check"></i><span class="hide-menu">Project </span></a>
+                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        class="mdi mdi-briefcase-check"></i><span class="hide-menu">Project </span></a>
                 <ul aria-expanded="false" class="collapse">
                     <li><a href="Projects/All_Projects">Projects </a></li>
                     <li><a href="Projects/All_Tasks"> Task List </a></li>
@@ -66,7 +80,8 @@
                 </ul>
             </li>
             <li>
-                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Payroll </span></a>
+                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        class="mdi mdi-receipt"></i><span class="hide-menu">Payroll </span></a>
                 <ul aria-expanded="false" class="collapse">
                     <!--<li><a href="Payroll/Salary_Type"> Payroll Type </a></li>-->
                     <li><a href="Payroll/Salary_List"> Payroll List </a></li>
@@ -75,7 +90,8 @@
                 </ul>
             </li>
             <li>
-                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-cash"></i><span class="hide-menu">Loan </span></a>
+                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        class="mdi mdi-cash"></i><span class="hide-menu">Loan </span></a>
                 <ul aria-expanded="false" class="collapse">
                     <li><a href="Loan/View"> Grant Loan </a></li>
                     <li><a href="Loan/installment"> Loan Installment</a></li>
@@ -83,7 +99,8 @@
             </li>
 
             <li>
-                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-grid"></i><span class="hide-menu">Assets </span></a>
+                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        class="mdi mdi-grid"></i><span class="hide-menu">Assets </span></a>
                 <ul aria-expanded="false" class="collapse">
                     <li><a href="Logistice/Assets_Category"> Assets Category </a></li>
                     <li><a href="Logistice/All_Assets"> Asset List </a></li>
@@ -92,8 +109,11 @@
                 </ul>
             </li>
 
-            <li> <a href="notice/All_notice"><i class="mdi mdi-clipboard"></i><span class="hide-menu">Notice <span class="hide-menu"></a></li>
-            <li> <a href="settings/Settings"><i class="mdi mdi-settings"></i><span class="hide-menu">Settings <span class="hide-menu"></a></li>
+
+            <li> <a href="notice/All_notice"><i class="mdi mdi-clipboard"></i><span class="hide-menu">Notice <span
+                            class="hide-menu"></a></li>
+            <li> <a href="settings/Settings"><i class="mdi mdi-settings"></i><span class="hide-menu">Settings <span
+                            class="hide-menu"></a></li>
         </ul>
     </nav>
     <!-- End Sidebar navigation -->
