@@ -52,11 +52,13 @@
             <!-- Sidebar scroll-->
             {{ sidebar() }}
             <!-- End Sidebar scroll-->
-        </aside>                     <div class="page-wrapper">
+        </aside>
+        <div class="page-wrapper">
             <div class="message"></div>
+            {% if single_emp %}
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor"><i class="fa fa-users" style="color:#1976d2"></i> Chow Hoong</h3>
+                    <h3 class="text-themecolor"><i class="fa fa-users" style="color:#1976d2"></i>{{single_emp[0]}} {{single_emp[1]}}</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
@@ -75,7 +77,7 @@
                                 <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#salary" role="tab" style="font-size: 14px;"> Salary</a> </li>
                             </ul>
                             <!-- Tab panes -->
-                            {% if single_emp %} {% if emp_salary %}
+                            {% if emp_salary %}
                             <div class="tab-content">
                                 <div class="tab-pane active" id="home" role="tabpanel">
                                     <div class="card">
