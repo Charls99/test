@@ -118,6 +118,18 @@ def singleEmployee(eid):
 
     cursor.execute(search_sql, (eid))
     single_emp = cursor.fetchone()
+    cursor.close()
+
+    search_sql = "SELECT total FROM salary where emid = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql, (eid))
+    emp_salary = cursor.fetchone()
+    cursor.close()
+
+    if emp_salary:
+        return redirect(url_for('/Single_Employee',  single_emp = single_emp, emp_salary = emp_salary))
+
     return render_template('Single_Employee.html', single_emp = single_emp)
 
 @app.route("/Update_Employee", methods=['GET', 'POST'])
@@ -161,6 +173,7 @@ def addSalary():
        cursor.execute(insert_sql, (sid, emid, typeid, total))
        db_conn.commit()
        cursor.close()
+
 
     return employee()
     
