@@ -129,7 +129,7 @@ def singleEmployee(eid):
     cursor.execute(search_sql, (eid))
     single_emp = cursor.fetchone()
 
-    search_sql = "SELECT * FROM salary where eid = %s"
+    search_sql = "SELECT * FROM salary where emid = %s"
     cursor = db_conn.cursor()
 
     cursor.execute(search_sql, (eid))
