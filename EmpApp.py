@@ -174,7 +174,6 @@ def addAttendance():
 def leave(): 
     return render_template('Leave.html')
 
-
 @app.route("/Add_Leave", methods=['GET', 'POST'])
 def addLeave():
     if request.method == 'POST':
@@ -184,11 +183,12 @@ def addLeave():
        leaveSdate = request.form['leaveSdate']
        leaveEdate = request.form['leaveEdate']
        reason = request.form['reason']
+       lid = request.form['lid']
        
     
-       insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s)"
+       insert_sql = "INSERT INTO leave VALUES (%s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
-       cursor.execute(insert_sql, (lemid, leavetype, leaveSdate, leaveEdate, reason))
+       cursor.execute(insert_sql, (lid, lemid, leavetype, leaveSdate, leaveEdate, reason))
        db_conn.commit()
 
     search_sql = "SELECT * FROM employee"
@@ -197,7 +197,6 @@ def addLeave():
     cursor.execute(search_sql)
     allemp = cursor.fetchall()
     return render_template('Add_Leave.html', allemp = allemp)
-
 
 @app.context_processor
 def utility_processor():
