@@ -254,6 +254,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% endif %}
+                                {% if salary_emp %}
                                 <div class="tab-pane" id="salary" role="tabpanel">
                                     <div class="card">
                                         <div class="card-body">
@@ -263,24 +265,22 @@
                                                     <div class="form-group col-md-6 m-t-5">
                                                         <label class="control-label">Salary Type</label>
                                                         <select class="form-control  custom-select" data-placeholder="Choose a Category" tabindex="1" name="typeid" required>
-                                                            <option value="{{ getEmpSalary(single_emp[2]) }}" selected>{{ getEmpSalary(single_emp[2]) }}</option>
+                                                            <option value="{{salary_emp[2]}}" selected>{{salary_emp[2]}}</option>
                                                             <option value="Monthly">Monthly</option>
                                                             <option value="Daily">Daily</option>
                                                             <option value="Hourly">Hourly</option>
-                                                            <option value="Monthly">Monthly</option>
                                                             <option value="Weekly">Weekly</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-6 m-t-5">
                                                         <label>Total Salary</label>
-                                                        <input type="text" name="total" class="form-control form-control-line total" placeholder="Total Salary" value="{{ getEmpSalary(single_emp[3]) }}" minlength="3" required>
+                                                        <input type="text" name="total" class="form-control form-control-line total" placeholder="Total Salary" value="{{salary_emp[3]}}" minlength="3" required>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
-                                                        <input type="hidden" name="emid" value="{{single_emp[2]}}">
-                                                        <input type="hidden" name="sid" value="">
+                                                        <input type="hidden" name="emid" value="{{salary_emp[1]}}">
                                                         <button type="submit" style="float: right" class="btn btn-success">Add Salary</button>
                                                     </div>
                                                 </div>
@@ -288,9 +288,9 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                {% endif %}
                             </div>
-                            {% endif %} 
+                           
                         </div>
                     </div>
                     <!-- Column -->

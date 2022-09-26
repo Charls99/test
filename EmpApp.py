@@ -106,6 +106,15 @@ def addEmployee():
        finally:
         cursor.close()
 
+       emid = eid
+       typeid = Monthly
+       total = 0
+
+       insert_sql = "INSERT INTO salary VALUES (%s, %s, %s, %d)"
+       cursor = db_conn.cursor()
+       cursor.execute(insert_sql, (sid, emid, typeid, total))
+       db_conn.commit()
+
        print("all modification done...")
        #after store data return back#
     return render_template('Add_employee.html')
@@ -119,7 +128,13 @@ def singleEmployee(eid):
     cursor.execute(search_sql, (eid))
     single_emp = cursor.fetchone()
 
-    return render_template('Single_Employee.html', single_emp = single_emp)
+    search_sql = "SELECT * FROM salary where eid = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql, (eid))
+    salary_emp = cursor.fetchone()
+
+    return render_template('Single_Employee.html', single_emp = single_emp, salary_emp = salary_emp)
 
 @app.route("/Update_Employee", methods=['GET', 'POST'])
 def updateEmployee():
@@ -154,15 +169,11 @@ def addSalary():
        typeid = request.form['typeid']
        total = request.form['total']
        emid = request.form['emid']
-       sid = request.form['sid']
        
-       insert_sql = "INSERT INTO salary VALUES (%s, %s, %s, %s)"
+       update_sql = "UPDATE salary SET typeid = %s, total = %s where emid = %s"
        cursor = db_conn.cursor()
-
-       cursor.execute(insert_sql, (sid, emid, typeid, total))
+       cursor.execute(update_sql, (typeid, total, emid))
        db_conn.commit()
-       cursor.close()
-
 
     return employee()
     
@@ -240,14 +251,7 @@ def utility_processor():
         name = single_emp[0] +" "+ single_emp[1]
         return name
 
-    def getEmpSalary(empid):
-        search_sql = "SELECT * FROM salary where emid = %s"
-        cursor = db_conn.cursor()
-
-        cursor.execute(search_sql, (empid))
-        salary_emp = cursor.fetchone()
-        return salary_emp
-    return dict(getEmpName=getEmpName, getEmpSalary=getEmpSalary)
+    return dict(getEmpName=getEmpName)
 
 # Initiating the application
 if __name__ == '__main__':
