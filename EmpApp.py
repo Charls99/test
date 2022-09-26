@@ -145,6 +145,24 @@ def updateEmployee():
        cursor.execute(update_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, email, eid))
        db_conn.commit()
     return employee()
+
+@app.route("/Add_Salary", methods=['GET', 'POST'])
+def addSalary():
+    if request.method == 'POST':
+       #add userdata when press submit button#
+       typeid = request.form['typeid']
+       total = request.form['total']
+       emid = request.form['emid']
+       sid = request.form['sid']
+       
+       insert_sql = "INSERT INTO salary VALUES (%s, %s, %s, %s)"
+       cursor = db_conn.cursor()
+
+       cursor.execute(insert_sql, (sid, emid, typeid, total))
+       db_conn.commit()
+       cursor.close()
+
+    return employee()
     
 
 @app.route("/Attendance")

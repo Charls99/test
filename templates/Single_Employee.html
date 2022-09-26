@@ -230,6 +230,7 @@
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs profile-tab" role="tablist">
                                 <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab" style="font-size: 14px;">  Personal Info </a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#salary" role="tab" style="font-size: 14px;"> Salary</a> </li>
                             </ul>
                             <!-- Tab panes -->
                             {% if single_emp %}
@@ -252,7 +253,7 @@
                                                         </div>
                                                         <div class="card-body">
                                                             <small class="text-muted">Email address </small>
-                                                            <h6>{{single_emp[14]}}</h6> 
+                                                            <h6>{{single_emp[14]}}</h6>
                                                             <small class="text-muted p-t-30 db">Phone</small>
                                                             <h6>{{single_emp[9]}}</h6>
                                                             <small class="text-muted p-t-30 db">Social Profile</small>
@@ -410,6 +411,59 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="tab-pane" id="salary" role="tabpanel">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h3 class="card-title">Basic Salary</h3>
+                                            <form action="/Add_Salary" method="post" enctype="multipart/form-data">
+                                                <div class="row">
+                                                    <div class="form-group col-md-6 m-t-5">
+                                                        <label class="control-label">Salary Type</label>
+                                                        <select class="form-control  custom-select" data-placeholder="Choose a Category" tabindex="1" name="typeid" required>
+                                                            <option value="" selected>Choose Type...</option>
+                                                            <option value="Monthly">Monthly</option>
+                                                            <option value="Daily">Daily</option>
+                                                            <option value="Hourly">Hourly</option>
+                                                            <option value="Monthly">Monthly</option>
+                                                            <option value="Weekly">Weekly</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-6 m-t-5">
+                                                        <label>Total Salary</label>
+                                                        <input type="text" name="total" class="form-control form-control-line total" placeholder="Total Salary" value="" minlength="3" required>
+                                                    </div>
+                                                </div>
+
+                                                <h3 class="card-title">Addition</h3>
+                                                <div class="row">
+                                                    <div class="form-group col-md-6 m-t-5">
+                                                        <label>Basic</label>
+                                                        <input type="text" name="basic" class="form-control form-control-line basic" placeholder="Basic..." value="">
+                                                    </div>
+                                                    <div class="form-group col-md-6 m-t-5">
+                                                        <label>House Rent</label>
+                                                        <input type="text" name="houserent" class="form-control form-control-line houserent" placeholder="House Rent..." value="">
+                                                    </div>
+                                                    <div class="form-group col-md-6 m-t-5">
+                                                        <label>Medical</label>
+                                                        <input type="text" name="medical" class="form-control form-control-line medical" placeholder="Medical..." value="">
+                                                    </div>
+                                                    <div class="form-group col-md-6 m-t-5">
+                                                        <label>Conveyance</label>
+                                                        <input type="text" name="conveyance" class="form-control form-control-line conveyance" placeholder="Conveyance..." value="">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <input type="hidden" name="emid" value="{{single_emp[2]}}">
+                                                        <input type="hidden" name="sid" value="">
+                                                        <button type="submit" style="float: right" class="btn btn-success">Add Salary</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                             {% endif %}
@@ -425,6 +479,15 @@
 
     </div>
 
+    <script type="text/javascript">
+          $('.total').on('input',function() {
+            var amount = parseInt($('.total').val());
+            $('.basic').val((amount * .50 ? amount * .50 : 0).toFixed(2));
+            $('.houserent').val((amount * .40 ? amount * .40 : 0).toFixed(2));
+            $('.medical').val((amount * .05 ? amount * .05 : 0).toFixed(2));
+            $('.conveyance').val((amount * .05 ? amount * .05 : 0).toFixed(2));
+          });
+    </script>
 
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../static/assets/plugins/bootstrap/js/popper.min.js"></script>
@@ -497,7 +560,7 @@
     <script type="text/javascript" src="../static/assets/plugins/calendar/dist/fullcalendar.min.js"></script>
     <script type="text/javascript" src="../static/assets/plugins/calendar/dist/cal-init.js"></script>
 
-    
+
 
     <script src="../static/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
