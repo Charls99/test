@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 from pymysql import connections
 import os
 import boto3
@@ -70,6 +70,15 @@ def addEmployee():
        username = request.form['username']
        email = request.form['email']
        image_url = request.files['image_url']
+
+       #detect to search existing user#
+       search_sql = "SELECT * FROM employee where eid = %s"
+       cursor = db_conn.cursor()
+
+       cursor.execute(search_sql, (eid))
+       existing_userID = cursor.fetchone()
+       if existing_userID:
+           return render_template('Add_employee.html', registererror = "Employee Code already taken, try different Employee Code")
     
        insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
