@@ -106,11 +106,12 @@ def addEmployee():
        finally:
         cursor.close()
 
+       sid = ""
        emid = eid
        typeid = "Monthly"
-       total = 0
+       total = ""
 
-       insert_sql = "INSERT INTO salary VALUES (%s, %s, %s, %d)"
+       insert_sql = "INSERT INTO salary VALUES (%s, %s, %s, %s)"
        cursor = db_conn.cursor()
        cursor.execute(insert_sql, (sid, emid, typeid, total))
        db_conn.commit()
