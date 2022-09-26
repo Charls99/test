@@ -176,7 +176,7 @@ def leave():
     cursor = db_conn.cursor()
 
     cursor.execute(search_sql)
-    allleave = cursor.fetchall()  
+    allleave = cursor.fetchall() 
     return render_template('Leave.html', allleave = allleave)
 
 

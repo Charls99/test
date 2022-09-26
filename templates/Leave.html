@@ -92,10 +92,8 @@
                                                 <th>Employee Name</th>
                                                 <th>PIN</th>
                                                 <th>Leave Type</th>
-                                                <th>Apply Date</th>
                                                 <th>Start Date</th>
                                                 <th>End Date</th>
-                                                <th>Duration</th>
                                                 <th>Leave Status</th>
                                                 <th>Action</th>
                                             </tr>
@@ -104,20 +102,12 @@
                                         <tbody>
                                             {% for leave in allleave %}
                                             <tr style="vertical-align:top">
-                                                <td><span>{{ getEmpName(attend[1]) }}</span></td>
-                                                <td>{{ attend[1] }}</td>
-                                                <td>{{ attend[1] }}</td>
-                                                <td>{{ attend[1] }}</td>
-                                                <td>{{ attend[1] }}</td>
-                                                <td>{{ attend[1] }}</td>
-                                                <td>{{ attend[1] }}</td>
-                                                <td></td>
-                                                <td>
-
-                                                    <!-- Duration filtering -->
-                                                    2 hours
-                                                </td>
-                                                <td>Not Approve</td>
+                                                <td><span>{{ getEmpName(leave[1]) }}</span></td>
+                                                <td>{{ leave[1] }}</td>
+                                                <td>{{ leave[2] }}</td>
+                                                <td>{{ leave[3] }}</td>
+                                                <td>{{ leave[4] }}</td>
+                                                <td> No Apply </td>
 
                                                 <td class="jsgrid-align-center">
 
