@@ -176,7 +176,7 @@ def utility_processor():
         search_sql = "SELECT * FROM employee where eid = %s"
         cursor = db_conn.cursor()
 
-        cursor.execute(search_sql, (eid))
+        cursor.execute(search_sql, (empid))
         single_emp = cursor.fetchone()
         name = single_emp[0] + single_emp[1]
         return empName
