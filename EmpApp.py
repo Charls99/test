@@ -170,6 +170,36 @@ def addAttendance():
     allemp = cursor.fetchall()
     return render_template('Save_Attendance.html', allemp = allemp)
 
+@app.route("/Leave")
+def leave(): 
+    return render_template('Leave.html')
+
+
+@app.route("/Add_Leave", methods=['GET', 'POST'])
+def addAttendance():
+    if request.method == 'POST':
+       #add userdata when press submit button#
+       emid = request.form['emid']
+       attdate = request.form['attdate']
+       signin = request.form['signin']
+       signout = request.form['signout']
+       place = request.form['place']
+       id = request.form['id']
+       
+    
+       insert_sql = "INSERT INTO attendance VALUES (%s, %s, %s, %s, %s, %s)"
+       cursor = db_conn.cursor()
+       cursor.execute(insert_sql, (id, emid, attdate, signin, signout, place))
+       db_conn.commit()
+
+    search_sql = "SELECT * FROM employee"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql)
+    allemp = cursor.fetchall()
+    return render_template('Save_Attendance.html', allemp = allemp)
+
+
 @app.context_processor
 def utility_processor():
     def getEmpName(empid):
