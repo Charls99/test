@@ -119,15 +119,6 @@ def singleEmployee(eid):
     cursor.execute(search_sql, (eid))
     single_emp = cursor.fetchone()
 
-    search_sql = "SELECT total FROM salary where emid = %s"
-    cursor = db_conn.cursor()
-
-    cursor.execute(search_sql, (eid))
-    emp_salary = cursor.fetchone()
-
-    if emp_salary:
-        return render_template('Single_Employee.html', single_emp = single_emp, emp_salary = emp_salary)
-
     return render_template('Single_Employee.html', single_emp = single_emp)
 
 @app.route("/Update_Employee", methods=['GET', 'POST'])
@@ -248,7 +239,15 @@ def utility_processor():
         single_emp = cursor.fetchone()
         name = single_emp[0] +" "+ single_emp[1]
         return name
-    return dict(getEmpName=getEmpName)
+
+    def getEmpSalary(empid):
+        search_sql = "SELECT total FROM salary where emid = %s"
+        cursor = db_conn.cursor()
+
+        cursor.execute(search_sql, (empid))
+        salary_emp = cursor.fetchone()
+        return salary_emp
+    return dict(getEmpName=getEmpName, getEmpSalary=getEmpSalary)
 
 # Initiating the application
 if __name__ == '__main__':
