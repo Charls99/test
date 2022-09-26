@@ -66,89 +66,190 @@
     <meta property="og:type" content="website">
 </head>
 
-<body class="u-body u-xl-mode" data-lang="en">
-    <header class="u-clearfix u-header u-header" id="sec-a796">
-        <div class="u-clearfix u-sheet u-sheet-1">
-            <a href="https://nicepage.com" class="u-image u-logo u-image-1">
-                <img src="images/default-logo.png" class="u-logo-image u-logo-image-1">
-            </a>
-        </div>
-    </header>
-    <section class="u-align-center u-clearfix u-palette-1-base u-section-1" id="carousel_f3ee">
-        <div class="u-expanded-width u-shape u-shape-rectangle u-white u-shape-1"></div>
-        <h2
-            class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-text u-text-body-color u-text-default u-text-1">
-            Our Amazing Team</h2>
-        <div class="u-list u-list-1">
-            <div class="u-repeater u-repeater-1">
-                <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">
-                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                        <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="485"
-                            data-image-height="645" src="{{ profile[0] }} ">
-                        <div class="u-align-center u-container-style u-group u-white u-group-1">
-                            <div class="u-container-layout u-container-layout-2">
-                                <h4 class="u-text u-text-2">Chow Weng Hoong</h4>
-                                <h6 class="u-text u-text-3">Creative Leader</h6>
-                                <p class="u-text u-text-4">The person who create and realise innovative solutions in the
-                                    face of complex or changing situations.</p>
-                            </div>
-                        </div>
-                    </div>
+<body class="fix-header fix-sidebar card-no-border">
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <div id="main-wrapper">
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="">
+                        <b>
+                            <img src="static/assets/images/hricn.png" alt="DRI" class="DRI-logo" style="width:50px;" />
+                        </b>
+                        <!-- Logo text --><span>
+                            <img src="static/assets/images/hrtag.png" alt="homepage" class="dark-logo" height="60px" width="100px" />
+                            <!-- Light Logo text -->
+                        </span>
+                    </a>
                 </div>
-                <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-2">
-                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                        <img alt="" class="u-expanded-width u-image u-image-default u-image-2" data-image-width="810"
-                            data-image-height="1080" src="{{ profile[2] }} ">
-                        <div class="u-align-center u-container-style u-group u-white u-group-2">
-                            <div class="u-container-layout u-container-layout-4">
-                                <h4 class="u-text u-text-5">Tan Yi Ling</h4>
-                                <h6 class="u-text u-text-6">Web Developer</h6>
-                                <p class="u-text u-text-7"> A&nbsp;programmer who develops World Wide Web applications
-                                    using a client–server model.</p>
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="mdi mdi-bell"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu mailbox scale-up-left">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Notifications</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav my-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="static/assets/images/users/userav-min.png" alt="Genit" class="profile-pic" style="height:40px;width:40px;border-radius:50px" /></a>
+                            <div class="dropdown-menu dropdown-menu-right scale-up">
+                                <ul class="dropdown-user">
+                                    <li>
+                                        <div class="dw-user-box">
+                                            <div class="u-img"><img src="static/assets/images/users/userav-min.png" alt="user"></div>
+                                            <div class="u-text">
+                                                <h4>Thom Anderson</h4>
+                                                <p class="text-muted">thoma@mail.com</p>
+                                            </div>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="employee/view?I=U295MTMzMg=="><i class="ti-user"></i> My Profile</a></li>
+
+                                    <li><a href="settings/Settings"><i class="ti-settings"></i> Account Setting</a></li>
+                                    <li><a href="login/logout"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-3">
-                    <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
-                        <img alt="" class="u-expanded-width u-image u-image-default u-image-3" data-image-width="1080"
-                            data-image-height="1920" src="{{ profile[1] }}">
-                        <div class="u-align-center u-container-style u-group u-white u-group-3">
-                            <div class="u-container-layout u-container-layout-6">
-                                <h4 class="u-text u-text-8">Chong Kah Yee</h4>
-                                <h6 class="u-text u-text-9">Web Designer</h6>
-                                <p class="u-text u-text-10"> An IT professional who is responsible for designing the
-                                    layout, visual appearance and the usability of a website.&nbsp;</p>
-                            </div>
-                        </div>
-                    </div>
+            </nav>
+        </header>
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            {{ sidebar() }}
+            <!-- End Sidebar scroll-->
+        </aside>         <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-themecolor"><i class="fa fa-users" aria-hidden="true"></i> Profile</h3>
+                </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Profile</li>
+                    </ol>
                 </div>
             </div>
+            <div class="message"></div>
+
+            <body class="u-body u-xl-mode" data-lang="en">
+                <header class="u-clearfix u-header u-header" id="sec-a796">
+                    <div class="u-clearfix u-sheet u-sheet-1">
+                        <a href="https://nicepage.com" class="u-image u-logo u-image-1">
+                            <img src="images/default-logo.png" class="u-logo-image u-logo-image-1">
+                        </a>
+                    </div>
+                </header>
+                <section class="u-align-center u-clearfix u-palette-1-base u-section-1" id="carousel_f3ee">
+                    <div class="u-expanded-width u-shape u-shape-rectangle u-white u-shape-1"></div>
+                    <h2
+                        class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-text u-text-body-color u-text-default u-text-1">
+                        Our Amazing Team</h2>
+                    <div class="u-list u-list-1">
+                        <div class="u-repeater u-repeater-1">
+                            <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">
+                                <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
+                                    <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="485"
+                                        data-image-height="645" src="{{ profile[0] }} ">
+                                    <div class="u-align-center u-container-style u-group u-white u-group-1">
+                                        <div class="u-container-layout u-container-layout-2">
+                                            <h4 class="u-text u-text-2">Chow Weng Hoong</h4>
+                                            <h6 class="u-text u-text-3">Creative Leader</h6>
+                                            <p class="u-text u-text-4">The person who create and realise innovative solutions in the
+                                                face of complex or changing situations.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-2">
+                                <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                                    <img alt="" class="u-expanded-width u-image u-image-default u-image-2" data-image-width="810"
+                                        data-image-height="1080" src="{{ profile[2] }} ">
+                                    <div class="u-align-center u-container-style u-group u-white u-group-2">
+                                        <div class="u-container-layout u-container-layout-4">
+                                            <h4 class="u-text u-text-5">Tan Yi Ling</h4>
+                                            <h6 class="u-text u-text-6">Web Developer</h6>
+                                            <p class="u-text u-text-7"> A&nbsp;programmer who develops World Wide Web applications
+                                                using a client–server model.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-3">
+                                <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
+                                    <img alt="" class="u-expanded-width u-image u-image-default u-image-3" data-image-width="1080"
+                                        data-image-height="1920" src="{{ profile[1] }}">
+                                    <div class="u-align-center u-container-style u-group u-white u-group-3">
+                                        <div class="u-container-layout u-container-layout-6">
+                                            <h4 class="u-text u-text-8">Chong Kah Yee</h4>
+                                            <h6 class="u-text u-text-9">Web Designer</h6>
+                                            <p class="u-text u-text-10"> An IT professional who is responsible for designing the
+                                                layout, visual appearance and the usability of a website.&nbsp;</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="u-text u-text-11">Image by <a href="https://www.freepik.com/photos/coffee"
+                            class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-2-base u-border-white u-btn u-button-link u-button-style u-none u-text-active-palette-2-base u-text-body-alt-color u-text-hover-palette-2-base u-btn-1"
+                            target="_blank">Freepik</a>
+                    </p>
+                </section>
+            
+            
+                <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-1b08">
+                    <div class="u-clearfix u-sheet u-sheet-1">
+                        <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the Text Element.</p>
+                    </div>
+                </footer>
+                <section class="u-backlink u-clearfix u-grey-80">
+                    <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+                        <span>Website Templates</span>
+                    </a>
+                    <p class="u-text">
+                        <span>created with</span>
+                    </p>
+                    <a class="u-link" href="" target="_blank">
+                        <span>Website Builder Software</span>
+                    </a>.
+                </section>
+            
+            </body>
+
+            <footer class="footer"> © 2022 | Developed By GenIT Bangladesh </footer>
+
         </div>
-        <p class="u-text u-text-11">Image by <a href="https://www.freepik.com/photos/coffee"
-                class="u-border-1 u-border-active-palette-2-base u-border-hover-palette-2-base u-border-white u-btn u-button-link u-button-style u-none u-text-active-palette-2-base u-text-body-alt-color u-text-hover-palette-2-base u-btn-1"
-                target="_blank">Freepik</a>
-        </p>
-    </section>
+
+    </div>
 
 
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-1b08">
-        <div class="u-clearfix u-sheet u-sheet-1">
-            <p class="u-small-text u-text u-text-variant u-text-1">Sample text. Click to select the Text Element.</p>
-        </div>
-    </footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-        <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-            <span>Website Templates</span>
-        </a>
-        <p class="u-text">
-            <span>created with</span>
-        </p>
-        <a class="u-link" href="" target="_blank">
-            <span>Website Builder Software</span>
-        </a>.
-    </section>
-
-</body>
 
 </html>
