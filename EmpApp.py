@@ -30,6 +30,14 @@ table = 'employee'
 def index():
     return render_template('Employee.html')
 
+@app.route("/Profile")
+def profile():
+    bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+    s3_location = (bucket_location['LocationConstraint'])
+    profile_image_staff_1 = object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(s3_location,custombucket,'staff_2.jpg')
+    return render_template("Profile.html", user_image=profile_image_staff_1)
+
+
 @app.route("/Employees")
 def employee():
     search_sql = "SELECT * FROM employee"
