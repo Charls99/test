@@ -37,7 +37,8 @@ def profile():
     profile_image_staff_1 = "https://yvonne-test.s3.amazonaws.com/{0}".format('staff_1.jpg')
     profile_image_staff_2 = "https://yvonne-test.s3.amazonaws.com/{0}".format('staff_2.jpg')
     profile_image_staff_3 = "https://yvonne-test.s3.amazonaws.com/{0}".format('staff_3.jpg')
-    return render_template("Profile.html", profile_image_staff_1,profile_image_staff_2,profile_image_staff_3 )
+    profile = [profile_image_staff_1,profile_image_staff_2,profile_image_staff_3]
+    return render_template("Profile.html", profile)
 
 
 @app.route("/Employees")
