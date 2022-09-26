@@ -128,7 +128,7 @@ def singleEmployee(eid):
     cursor.close()
 
     if emp_salary:
-        return redirect(url_for('/Single_Employee',  single_emp = single_emp, emp_salary = emp_salary))
+        return render_template('Single_Employee.html', single_emp = single_emp, emp_salary = emp_salary)
 
     return render_template('Single_Employee.html', single_emp = single_emp)
 
