@@ -52,12 +52,11 @@
             <!-- Sidebar scroll-->
             {{ sidebar() }}
             <!-- End Sidebar scroll-->
-        </aside>         
-        <div class="page-wrapper">
+        </aside>         <div class="page-wrapper">
             <div class="message"></div>
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor"><i class="fa fa-calendar-check-o" style="color:#1976d2"></i>Attendance</h3>
+                    <h3 class="text-themecolor">Attendance</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
@@ -66,80 +65,68 @@
                     </ol>
                 </div>
             </div>
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
 
                 <div class="row m-b-10">
                     <div class="col-12">
-                        <button type="button" class="btn btn-info"><i class="fa fa-plus"></i><a href="Save_Attendance" class="text-white"><i class="" aria-hidden="true"></i> Add Attendance </a></button>
-                        <!--<button type="button" class="btn btn-primary"><i class="fa fa-bars"></i><a href="#" class="text-white" data-toggle="modal" data-target="#Bulkmodal"><i class="" aria-hidden="true"></i>  Add Bulk Attendance</a></button>
-                        <button type="button" class="btn btn-info"><i class="fa fa-plus"></i><a href="Attendance-Report" class="text-white"><i class="" aria-hidden="true"></i> Attendance Report </a></button>-->
+                        <button type="button" class="btn btn-primary"><i class="fa fa-bars"></i><a href="{{url_for('attendance')}}" class="text-white"><i class="" aria-hidden="true"></i>  Attendance List</a></button>
+                        <button type="button" class="btn btn-primary"><i class="fa fa-bars"></i><a href="{{url_for('leave')}}" class="text-white"><i class="" aria-hidden="true"></i>  Leave Application</a></button>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="card card-outline-info">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white"> Attendance List  </h4>
+                                <h4 class="m-b-0 text-white"> Attendance </h4>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive ">
-                                    <table id="attendance123" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Employee Name</th>
-                                                <th>PIN</th>
-                                                <th>Date </th>
-                                                <th>Sign In</th>
-                                                <th>Sign Out</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for attend in allattend %}
-                                            <tr>
-                                                <td><mark>{{ getEmpName(attend[1]) }}</mark></td>
-                                                <td>{{ attend[1] }}</td>
-                                                <td>{{ attend[2] }}</td>
-                                                <td>{{ attend[3] }}</td>
-                                                <td>{{ attend[4] }}</td>
-                                                <td class="jsgrid-align-center ">
-                                                    <a href="{{url_for('singleAttendance', id = attend[0])}}" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light" data-value="Approve"><i class="fa fa-pencil-square-o"></i></a>
-                                                </td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <form method="post" action="/Update_Attendance" id="holidayform" enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label>Employee</label>
+                                            <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="emid" disabled>
+
+                                                {% if single_emp %}
+                                                <option value="{{ single_emp[2] }}">{{ single_emp[0] }} {{ single_emp[1] }}</option>
+                                                {% endif %}
+                                                <!-- get user from SQL-->
+                                            </select>
+                                        </div>
+                                        {% if attendance_emp %}
+                                        <label>Select Date: </label>
+                                        <div id="" class="input-group date">
+                                            <input name="attdate" class="form-control mydatetimepickerFull" value="{{ attendance_emp[2] }}" required>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="m-t-20">Sign In Time</label>
+                                            <input class="form-control" name="signin" id="single-input" value="{{ attendance_emp[3] }}" placeholder="Now" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="m-t-20">Sign Out Time</label>
+                                            <div class="input-group clockpicker">
+                                                <input type="text" name="signout" class="form-control" value="{{ attendance_emp[4] }}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Place</label>
+                                            <select class="form-control custom-select" data-placeholder="" tabindex="1" name="place" required>
+                                                <option value="office">{{ attendance_emp[5] }}</option>
+                                                <option value="office">Office</option>
+                                                <option value="field">Field</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="hidden" name="id" value="{{ attendance_emp[0] }}" class="form-control" id="recipient-name1">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="submit" id="attendanceUpdate" class="btn btn-success">Submit</button>
+                                    </div>
+                                    {% endif %}
+                                </form>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div id="Bulkmodal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <form method="post" action="unsaved:///import" enctype="multipart/form-data">
-                                <div class="modal-header">
-                                    <h4 class="modal-title" id="myModalLabel">Add Attendance</h4>
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                </div>
-                                <div class="modal-body">
-                                    <h4>Import Attendance<span><img src="static/assets/images/finger.jpg" height="100px" width="100px"></span>Upload only CSV file</h4>
-
-                                    <input type="file" name="csv_file" id="csv_file" accept=".csv"><br><br>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-success waves-effect">Save</button>
-                                    <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">Close</button>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
                 </div>
             </div>
 
@@ -222,7 +209,7 @@
     <script type="text/javascript" src="static/assets/plugins/calendar/dist/cal-init.js"></script>
 
     <script type="text/javascript">
-        $(function () {
+$(function () {
             $('.mydatetimepicker').datepicker({
             format: "mm-yyyy",
             viewMode: "years",
@@ -233,10 +220,10 @@
             $('.mydatetimepickerFull').datepicker({
             format: "yyyy-mm-dd"
             });
-        });
-    </script>
+        });</script>
+
     <script>
-    $(document).ready(function() {
+        $(document).ready(function () {
         $('#myTable').DataTable();
         $(document).ready(function() {
             var table = $('#example').DataTable({
@@ -327,51 +314,9 @@
 
     $(".select2").select2();
     </script>
-    <script type="text/javascript">
-$('form').each(function() {
-    $(this).validate({
-    submitHandler: function(form) {
-        var formval = form;
-        var url = $(form).attr('action');
 
-        // Create an FormData object
-        var data = new FormData(formval);
-        $.ajax({
-            type: "POST",
-            enctype: 'multipart/form-data',
-            // url: "crud/Add_userInfo",
-            url: url,
-            data: data,
-            processData: false,
-            contentType: false,
-            cache: false,
-            timeout: 600000,
-            success: function (response) {
-                console.log(response);
-                $(".message").fadeIn('fast').delay(3000).fadeOut('fast').html(response);
-                $('form').trigger("reset");
-                window.setTimeout(function(){location.reload()},3000);
-            },
-            error: function (e) {
-                console.log(e);
-            }
-        });
-    }
-});
-});
-
-    </script>
 
     <script src="static/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
 
 </html>
-<script>
-    $('#attendance123').DataTable({
-        "aaSorting": [[2,'desc']],
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
-</script>
