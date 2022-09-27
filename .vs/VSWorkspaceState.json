@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\static",
+    "\\static\\assets",
+    "\\static\\assets\\css",
     "\\templates"
   ],
-  "SelectedNode": "\\EmpApp.py",
+  "SelectedNode": "\\templates\\sidebar.html",
   "PreviewInSolutionExplorer": false
 }
