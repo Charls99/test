@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, url_for, redirect
 from pymysql import connections
 import os
 import boto3
+import calendar
+import datetime
 from config import *
 
 # Flask constructor#
@@ -177,20 +179,6 @@ def updateEmployee():
        db_conn.commit()
     return employee()
 
-@app.route("/Add_Salary", methods=['GET', 'POST'])
-def addSalary():
-    if request.method == 'POST':
-       #add userdata when press submit button#
-       typeid = request.form['typeid']
-       total = request.form['total']
-       emid = request.form['emid']
-       
-       update_sql = "UPDATE salary SET typeid = %s, total = %s where emid = %s"
-       cursor = db_conn.cursor()
-       cursor.execute(update_sql, (typeid, total, emid))
-       db_conn.commit()
-
-    return employee()
     
 
 @app.route("/Attendance")
@@ -264,6 +252,34 @@ def addLeave():
     allemp = cursor.fetchall()
     return render_template('Add_Leave.html', allemp = allemp)
 
+@app.route("/Salary_List")
+def salaryList(): 
+    
+    search_sql = "SELECT * FROM salary"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql)
+    allsalary = cursor.fetchall()
+    if allsalary:
+        return render_template('Salary_List.html', allsalary = allsalary)
+
+    return render_template('Salary_List.html')
+
+@app.route("/Add_Salary", methods=['GET', 'POST'])
+def addSalary():
+    if request.method == 'POST':
+       #add userdata when press submit button#
+       typeid = request.form['typeid']
+       total = request.form['total']
+       emid = request.form['emid']
+       
+       update_sql = "UPDATE salary SET typeid = %s, total = %s where emid = %s"
+       cursor = db_conn.cursor()
+       cursor.execute(update_sql, (typeid, total, emid))
+       db_conn.commit()
+
+    return salaryList()
+
 @app.context_processor
 def utility_processor():
     def getEmpName(empid):
@@ -275,7 +291,12 @@ def utility_processor():
         name = single_emp[0] +" "+ single_emp[1]
         return name
 
-    return dict(getEmpName=getEmpName)
+    def getPayDate():
+        currentDate = datetime.date.today()
+        lastDayOfMonth = datetime.date(currentDate.year, currentDate.month, calendar.monthrange(currentDate.year, currentDate.month)[1])
+        return lastDayOfMonth
+
+    return dict(getEmpName=getEmpName, getPayDate=getPayDate)
 
 # Initiating the application
 if __name__ == '__main__':
