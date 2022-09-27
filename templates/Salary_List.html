@@ -106,7 +106,7 @@
                                                 <td>{{ salary[2] }}</td>
                                                 <td>{{ salary[4] }}</td>
                                                 <td class="jsgrid-align-center ">
-                                                    <a href="" title="Paid" class="btn btn-sm btn-success waves-effect waves-light Status">Paid</a>
+                                                    <a href="{{url_for('singleSalary', eid = salary[1])}}" title="Paid" class="btn btn-sm btn-success waves-effect waves-light Status">Paid</a>
                                                     <a href="{{url_for('singleSalary', eid = salary[1])}}" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light" data-id="4"><i class="fa fa-pencil-square-o"></i></a>
                                                 </td>
                                             </tr>
