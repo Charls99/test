@@ -236,13 +236,14 @@ def addLeave():
        leave_type = request.form['leave_type']
        start_date = request.form['start_date']
        end_date = request.form['end_date']
+       leaveStatus = "Pending"
        reason = request.form['reason']
        id = request.form['id']
        
     
-       insert_sql = "INSERT INTO empLeave VALUES (%s, %s, %s, %s, %s, %s)"
+       insert_sql = "INSERT INTO empLeave VALUES (%s, %s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
-       cursor.execute(insert_sql, (id, em_id, leave_type, start_date, end_date, reason))
+       cursor.execute(insert_sql, (id, em_id, leave_type, start_date, end_date, leaveStatus, reason))
        db_conn.commit()
 
     search_sql = "SELECT * FROM employee"
@@ -251,6 +252,28 @@ def addLeave():
     cursor.execute(search_sql)
     allemp = cursor.fetchall()
     return render_template('Add_Leave.html', allemp = allemp)
+
+@app.route("/ApproveLeave/<eid>")
+def approveLeave(eid): 
+    #add userdata when press submit button#
+    status = "Approve"
+       
+    update_sql = "UPDATE empLeave SET leaveStatus = %s where emid = %s"
+    cursor = db_conn.cursor()
+    cursor.execute(update_sql, (status, eid))
+    db_conn.commit()
+    return redirect(url_for('leave'))
+
+@app.route("/RejectLeave/<eid>")
+def rejectLeave(eid): 
+    #add userdata when press submit button#
+    status = "Reject"
+       
+    update_sql = "UPDATE empLeave SET leaveStatus = %s where emid = %s"
+    cursor = db_conn.cursor()
+    cursor.execute(update_sql, (status, eid))
+    db_conn.commit()
+    return redirect(url_for('leave'))
 
 @app.route("/Salary_List")
 def salaryList(): 

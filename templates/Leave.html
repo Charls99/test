@@ -73,7 +73,6 @@
 
                     <div class="col-12">
                         <button type="button" class="btn btn-info"><i class="fa fa-plus"></i><a href="Add_Leave" class="text-white"><i class="" aria-hidden="true"></i> Add Leave </a></button>
-                        <button type="button" class="btn btn-primary"><i class="fa fa-bars"></i><a href="leave/Holidays" class="text-white"><i class="" aria-hidden="true"></i> Holiday List</a></button>
                     </div>
 
                 </div>
@@ -112,8 +111,8 @@
 
                                                 <td class="jsgrid-align-center">
 
-                                                    <a href="" title="Approve" class="btn btn-sm btn-success waves-effect waves-light Status" data-employeeId=Joh1474 data-id="4" data-value="Approve" data-duration="2" data-type="1">Approve</a>
-                                                    <a href="" title="Reject" class="btn btn-sm btn-danger waves-effect waves-light  Status" data-id="4" data-value="Rejected">Reject</a>
+                                                    <a href="{{url_for('approveLeave', eid = leave[1])}}" title="Approve" class="btn btn-sm btn-success waves-effect waves-light Status" >Approve</a>
+                                                    <a href="{{url_for('rejectLeave', eid = leave[1])}}" title="Reject" class="btn btn-sm btn-danger waves-effect waves-light  Status">Reject</a>
                                                     <br>
 
                                                     <a href="" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light leaveapp" data-id="4"><i class="fa fa-pencil-square-o"></i></a>
