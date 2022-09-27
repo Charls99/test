@@ -332,12 +332,15 @@ def utility_processor():
         name = single_emp[0] +" "+ single_emp[1]
         return name
 
-    def getPayDate():
-        currentDate = datetime.date.today()
-        lastDayOfMonth = datetime.date(currentDate.year, currentDate.month, calendar.monthrange(currentDate.year, currentDate.month)[1])
-        return lastDayOfMonth
+    def getEmpSalary(empid):
+        search_sql = "SELECT total FROM salary where eid = %s"
+        cursor = db_conn.cursor()
 
-    return dict(getEmpName=getEmpName, getPayDate=getPayDate)
+        cursor.execute(search_sql, (empid))
+        salary = cursor.fetchone()
+        return salary
+
+    return dict(getEmpName=getEmpName, getEmpSalary=getEmpSalary)
 
 # Initiating the application
 if __name__ == '__main__':
