@@ -320,9 +320,8 @@ def generateSalary():
     allemp = cursor.fetchall()
     return render_template('Generate_Salary.html', allemp=allemp)
 
-@app.route("/Update_PaidStatus/<eid>")
 def updatePaidStatus(eid): 
-       #add userdata when press submit button#
+    #add userdata when press submit button#
     status = "Paid"
        
     update_sql = "UPDATE paySalary SET status = %s where emid = %s"
