@@ -333,7 +333,7 @@ def utility_processor():
         return name
 
     def getEmpSalary(empid):
-        search_sql = "SELECT total FROM salary where eid = %s"
+        search_sql = "SELECT total FROM salary where emid = %s"
         cursor = db_conn.cursor()
 
         cursor.execute(search_sql, (empid))
