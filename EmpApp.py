@@ -297,6 +297,16 @@ def addSalary():
 
     return salaryList()
 
+@app.route("/Generate_Salary")
+def generateSalary(): 
+    search_sql = "SELECT * FROM employee"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql)
+    allemp = cursor.fetchall()
+    return render_template('Generate_Salary.html', allemp=allemp)
+
+
 @app.context_processor
 def utility_processor():
     def getEmpName(empid):
