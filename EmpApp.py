@@ -284,7 +284,7 @@ def singleLeave(eid):
     cursor.execute(search_sql, (eid))
     single_emp = cursor.fetchone()
 
-    search_sql = "SELECT * FROM empLeave where emid = %s"
+    search_sql = "SELECT * FROM empLeave where em_id = %s"
     cursor = db_conn.cursor()
 
     cursor.execute(search_sql, (eid))
