@@ -258,7 +258,7 @@ def approveLeave(eid):
     #add userdata when press submit button#
     status = "Approve"
        
-    update_sql = "UPDATE empLeave SET leaveStatus = %s where emid = %s"
+    update_sql = "UPDATE empLeave SET leaveStatus = %s where em_id = %s"
     cursor = db_conn.cursor()
     cursor.execute(update_sql, (status, eid))
     db_conn.commit()
@@ -269,7 +269,7 @@ def rejectLeave(eid):
     #add userdata when press submit button#
     status = "Reject"
        
-    update_sql = "UPDATE empLeave SET leaveStatus = %s where emid = %s"
+    update_sql = "UPDATE empLeave SET leaveStatus = %s where em_id = %s"
     cursor = db_conn.cursor()
     cursor.execute(update_sql, (status, eid))
     db_conn.commit()
