@@ -253,42 +253,43 @@ def addLeave():
     allemp = cursor.fetchall()
     return render_template('Add_Leave.html', allemp = allemp)
 
-@app.route("/ApproveLeave/<eid>")
-def approveLeave(eid): 
+@app.route("/ApproveLeave/<id>")
+def approveLeave(id): 
     #add userdata when press submit button#
     status = "Approve"
        
-    update_sql = "UPDATE empLeave SET leaveStatus = %s where em_id = %s"
+    update_sql = "UPDATE empLeave SET leaveStatus = %s where id = %s"
     cursor = db_conn.cursor()
-    cursor.execute(update_sql, (status, eid))
+    cursor.execute(update_sql, (status, id))
     db_conn.commit()
     return redirect(url_for('leave'))
 
-@app.route("/RejectLeave/<eid>")
-def rejectLeave(eid): 
+@app.route("/RejectLeave/<id>")
+def rejectLeave(id): 
     #add userdata when press submit button#
     status = "Reject"
        
-    update_sql = "UPDATE empLeave SET leaveStatus = %s where em_id = %s"
+    update_sql = "UPDATE empLeave SET leaveStatus = %s where id = %s"
     cursor = db_conn.cursor()
-    cursor.execute(update_sql, (status, eid))
+    cursor.execute(update_sql, (status, id))
     db_conn.commit()
     return redirect(url_for('leave'))
 
-@app.route("/Single_Leave/<eid>")
-def singleLeave(eid):
+@app.route("/Single_Leave/<id>")
+def singleLeave(id):
     #Using %s to Prevent SQL Injection#
+
+    search_sql = "SELECT * FROM empLeave where id = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql, (id))
+    leave_emp = cursor.fetchone()
+
     search_sql = "SELECT * FROM employee where eid = %s"
     cursor = db_conn.cursor()
 
-    cursor.execute(search_sql, (eid))
+    cursor.execute(search_sql, (leave_emp[1]))
     single_emp = cursor.fetchone()
-
-    search_sql = "SELECT * FROM empLeave where em_id = %s"
-    cursor = db_conn.cursor()
-
-    cursor.execute(search_sql, (eid))
-    leave_emp = cursor.fetchone()
 
     return render_template('Single_Leave.html', single_emp = single_emp, leave_emp = leave_emp)
 

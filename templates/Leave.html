@@ -111,11 +111,11 @@
 
                                                 <td class="jsgrid-align-center">
 
-                                                    <a href="{{url_for('approveLeave', eid = leave[1])}}" title="Approve" class="btn btn-sm btn-success waves-effect waves-light Status" >Approve</a>
-                                                    <a href="{{url_for('rejectLeave', eid = leave[1])}}" title="Reject" class="btn btn-sm btn-danger waves-effect waves-light  Status">Reject</a>
+                                                    <a href="{{url_for('approveLeave', id = leave[0])}}" title="Approve" class="btn btn-sm btn-success waves-effect waves-light Status" >Approve</a>
+                                                    <a href="{{url_for('rejectLeave', id = leave[0])}}" title="Reject" class="btn btn-sm btn-danger waves-effect waves-light  Status">Reject</a>
                                                     <br>
 
-                                                    <a href="{{url_for('singleLeave', eid = leave[1])}}" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light leaveapp" data-id="4"><i class="fa fa-pencil-square-o"></i></a>
+                                                    <a href="{{url_for('singleLeave', id = leave[0])}}" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light leaveapp" data-id="4"><i class="fa fa-pencil-square-o"></i></a>
 
                                                 </td>
                                             </tr>
