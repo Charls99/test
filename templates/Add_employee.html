@@ -137,7 +137,6 @@
                     </div>
                 </div>
 
-                {% if registererror %} {{registererror}} {% endif %}
 
     <div class="row">
         <div class="col-12">
@@ -159,7 +158,7 @@
                         </div>
                         <div class="form-group col-md-3 m-t-20">
                             <label>Employee Code </label>
-                            <input type="text" name="eid" class="form-control form-control-line" placeholder="Employee's Code: 8086" required>
+                            <input type="text" name="eid" class="form-control form-control-line" value="{{eid}}" placeholder="Auto Generate" disabled>
                         </div>
                         <div class="form-group col-md-3 m-t-20">
                             <label>Department</label>

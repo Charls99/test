@@ -71,15 +71,6 @@ def addEmployee():
        email = request.form['email']
        image_url = request.files['image_url']
 
-       #detect to search existing user#
-       search_sql = "SELECT * FROM employee where eid = %s"
-       cursor = db_conn.cursor()
-
-       cursor.execute(search_sql, (eid))
-       existing_userID = cursor.fetchone()
-       if existing_userID:
-           return render_template('Add_employee.html', registererror = "Employee Code already taken, try different Employee Code")
-    
        insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
 
@@ -87,6 +78,17 @@ def addEmployee():
 
         cursor.execute(insert_sql, (fname, lname, eid, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email))
         db_conn.commit()
+
+        sid = ""
+        emid = eid
+        typeid = "Monthly"
+        total = ""
+
+        insert_sql = "INSERT INTO salary VALUES (%s, %s, %s, %s)"
+        cursor = db_conn.cursor()
+        cursor.execute(insert_sql, (sid, emid, typeid, total))
+        db_conn.commit()
+
         #Set name for listout#
         emp_name = "" + fname + " " + lname
         # Uplaod image file in S3 #
@@ -115,19 +117,22 @@ def addEmployee():
        finally:
         cursor.close()
 
-       sid = ""
-       emid = eid
-       typeid = "Monthly"
-       total = ""
-
-       insert_sql = "INSERT INTO salary VALUES (%s, %s, %s, %s)"
-       cursor = db_conn.cursor()
-       cursor.execute(insert_sql, (sid, emid, typeid, total))
-       db_conn.commit()
+       
 
        print("all modification done...")
        #after store data return back#
-    return render_template('Add_employee.html')
+
+    #Generate auto number#
+    search_sql = "SELECT eid FROM employee ORDER BY eid DESC"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql, (eid))
+    existing_userID = cursor.fetchone()
+    eid = 1000
+    #detect to search existing user#
+    if existing_userID:
+       eid = existing_userID[0] + 1
+    return render_template('Add_employee.html', eid = eid)
 
 @app.route("/Single_Employee/<eid>")
 def singleEmployee(eid):
