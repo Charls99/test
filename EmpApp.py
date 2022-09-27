@@ -338,7 +338,7 @@ def utility_processor():
 
         cursor.execute(search_sql, (empid))
         salary = cursor.fetchone()
-        return salary
+        return 1
 
     return dict(getEmpName=getEmpName, getEmpSalary=getEmpSalary)
 
