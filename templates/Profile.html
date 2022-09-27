@@ -55,10 +55,12 @@
             <!-- Sidebar scroll-->
             {{ sidebar() }}
             <!-- End Sidebar scroll-->
-        </aside>         <div class="page-wrapper">
+        </aside>         
+        <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
+            <div class="message"></div>
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
                     <h3 class="text-themecolor"><i class="fa fa-users" aria-hidden="true"></i> Profile</h3>
@@ -71,69 +73,79 @@
                     </ol>
                 </div>
             </div>
-            <div class="message"></div>
 
-            <body class="u-body u-xl-mode" data-lang="en">
-                <section class="u-align-center u-clearfix u-palette-1-base u-section-1" id="carousel_f3ee">
-                    <div class="u-expanded-width u-shape u-shape-rectangle u-white u-shape-1"></div>
-                    <h2 class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-text u-text-body-color u-text-default u-text-1">
-                        Our Amazing Team
-                    </h2>
-                    <div class="u-list u-list-1">
-                        <div class="u-repeater u-repeater-1">
-                            <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">
-                                <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                                    <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="485"
-                                         data-image-height="645" src="{{ profile[0] }} ">
-                                    <div class="u-align-center u-container-style u-group u-white u-group-1">
-                                        <div class="u-container-layout u-container-layout-2">
-                                            <h4 class="u-text u-text-2">Chow Weng Hoong</h4>
-                                            <h6 class="u-text u-text-3">Creative Leader</h6>
-                                            <p class="u-text u-text-4">
-                                                The person who create and realise innovative solutions in the
-                                                face of complex or changing situations.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-2">
-                                <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                                    <img alt="" class="u-expanded-width u-image u-image-default u-image-2" data-image-width="810"
-                                         data-image-height="1080" src="{{ profile[2] }} ">
-                                    <div class="u-align-center u-container-style u-group u-white u-group-2">
-                                        <div class="u-container-layout u-container-layout-4">
-                                            <h4 class="u-text u-text-5">Tan Yi Ling</h4>
-                                            <h6 class="u-text u-text-6">Web Developer</h6>
-                                            <p class="u-text u-text-7">
-                                                A&nbsp;programmer who develops World Wide Web applications
-                                                using a client–server model.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-3">
-                                <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
-                                    <img alt="" class="u-expanded-width u-image u-image-default u-image-3" data-image-width="1080"
-                                         data-image-height="1920" src="{{ profile[1] }}">
-                                    <div class="u-align-center u-container-style u-group u-white u-group-3">
-                                        <div class="u-container-layout u-container-layout-6">
-                                            <h4 class="u-text u-text-8">Chong Kah Yee</h4>
-                                            <h6 class="u-text u-text-9">Web Designer</h6>
-                                            <p class="u-text u-text-10">
-                                                An IT professional who is responsible for designing the
-                                                layout, visual appearance and the usability of a website.&nbsp;
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="container-fluid">
+
+                <div class="row m-b-10">
+                    <div class="col-12">
+                        <button type="button" class="btn btn-info"><i class="fa fa-plus"></i><a href="{{url_for('leave')}}" class="text-white"><i class="" aria-hidden="true"></i>  Leave Application</a></button>
                     </div>
-                </section>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <section class="u-align-center u-clearfix u-palette-1-base u-section-1" id="carousel_f3ee">
+                            <div class="u-expanded-width u-shape u-shape-rectangle u-white u-shape-1"></div>
+                            <h2 class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-text u-text-body-color u-text-default u-text-1">
+                                Our Amazing Team
+                            </h2>
+                            <div class="u-list u-list-1">
+                                <div class="u-repeater u-repeater-1">
+                                    <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">
+                                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
+                                            <img alt="" class="u-expanded-width u-image u-image-default u-image-1" data-image-width="485"
+                                                 data-image-height="645" src="https://yvonne-test.s3.amazonaws.com/staff_1.jpg ">
+                                            <div class="u-align-center u-container-style u-group u-white u-group-1">
+                                                <div class="u-container-layout u-container-layout-2">
+                                                    <h4 class="u-text u-text-2">Chow Weng Hoong</h4>
+                                                    <h6 class="u-text u-text-3">Creative Leader</h6>
+                                                    <p class="u-text u-text-4">
+                                                        The person who create and realise innovative solutions in the
+                                                        face of complex or changing situations.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-2">
+                                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+                                            <img alt="" class="u-expanded-width u-image u-image-default u-image-2" data-image-width="810"
+                                                 data-image-height="1080" src="https://yvonne-test.s3.amazonaws.com/staff_3.jpg ">
+                                            <div class="u-align-center u-container-style u-group u-white u-group-2">
+                                                <div class="u-container-layout u-container-layout-4">
+                                                    <h4 class="u-text u-text-5">Tan Yi Ling</h4>
+                                                    <h6 class="u-text u-text-6">Web Developer</h6>
+                                                    <p class="u-text u-text-7">
+                                                        A&nbsp;programmer who develops World Wide Web applications
+                                                        using a client–server model.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-3">
+                                        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
+                                            <img alt="" class="u-expanded-width u-image u-image-default u-image-3" data-image-width="1080"
+                                                 data-image-height="1920" src="https://yvonne-test.s3.amazonaws.com/staff_2.jpg">
+                                            <div class="u-align-center u-container-style u-group u-white u-group-3">
+                                                <div class="u-container-layout u-container-layout-6">
+                                                    <h4 class="u-text u-text-8">Chong Kah Yee</h4>
+                                                    <h6 class="u-text u-text-9">Web Designer</h6>
+                                                    <p class="u-text u-text-10">
+                                                        An IT professional who is responsible for designing the
+                                                        layout, visual appearance and the usability of a website.&nbsp;
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
 
-            </body>
+
 
             <footer class="footer"> © 2022 | Developed By GenIT Bangladesh </footer>
         </div>
