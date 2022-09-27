@@ -297,7 +297,7 @@ def addSalary():
 
     return salaryList()
 
-@app.route("/Generate_Salary")
+@app.route("/Generate_Salary", methods=['GET', 'POST'])
 def generateSalary(): 
     if request.method == 'POST':
        #add userdata when press submit button#
