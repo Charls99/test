@@ -276,7 +276,7 @@ def rejectLeave(eid):
     return redirect(url_for('leave'))
 
 @app.route("/Single_Leave/<eid>")
-def singleEmployee(eid):
+def singleLeave(eid):
     #Using %s to Prevent SQL Injection#
     search_sql = "SELECT * FROM employee where eid = %s"
     cursor = db_conn.cursor()
@@ -290,7 +290,7 @@ def singleEmployee(eid):
     cursor.execute(search_sql, (eid))
     leave_emp = cursor.fetchone()
 
-    return render_template('Single_Employee.html', single_emp = single_emp, leave_emp = leave_emp)
+    return render_template('Single_Leave.html', single_emp = single_emp, leave_emp = leave_emp)
 
 @app.route("/Update_Leave", methods=['GET', 'POST'])
 def updateLeave():
