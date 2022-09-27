@@ -265,6 +265,23 @@ def salaryList():
 
     return render_template('Salary_List.html')
 
+@app.route("/Single_Salary/<eid>")
+def singleSalary(eid):
+    #Using %s to Prevent SQL Injection#
+    search_sql = "SELECT * FROM employee where eid = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql, (eid))
+    single_emp = cursor.fetchone()
+
+    search_sql = "SELECT * FROM salary where emid = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql, (eid))
+    salary_emp = cursor.fetchone()
+
+    return render_template('Single_Salary.html', single_emp = single_emp, salary_emp = salary_emp)
+
 @app.route("/Add_Salary", methods=['GET', 'POST'])
 def addSalary():
     if request.method == 'POST':
