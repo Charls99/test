@@ -12,6 +12,7 @@ from config import *
 # The default folder name should be "templates" else need to mention custom folder name
 app = Flask(__name__,template_folder="templates", static_folder="static")
 
+Upload_folder = "uploads"
 bucket = custombucket
 region = customregion
 
