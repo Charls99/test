@@ -320,6 +320,7 @@ def generateSalary():
     allemp = cursor.fetchall()
     return render_template('Generate_Salary.html', allemp=allemp)
 
+@app.route("/UpdatePaidStatus/<eid>", methods=['GET', 'POST'])
 def updatePaidStatus(eid): 
     #add userdata when press submit button#
     status = "Paid"
