@@ -303,9 +303,9 @@ def updateLeave():
        end_date = request.form['end_date']
        reason = request.form['reason']
     
-       update_sql = "UPDATE empLeave SET leave_type = %s, start_date = %s, end_date = %s, reason = %s where eid = %s"
+       update_sql = "UPDATE empLeave SET leave_type = %s, start_date = %s, end_date = %s, reason = %s where id = %s"
        cursor = db_conn.cursor()
-       cursor.execute(update_sql, (leave_type, start_date, end_date, reason, eid))
+       cursor.execute(update_sql, (leave_type, start_date, end_date, reason, id))
        db_conn.commit()
     return leave()
 
