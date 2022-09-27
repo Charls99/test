@@ -229,6 +229,15 @@ def addAttendance():
 
 @app.route("/Leave")
 def leave(): 
+    
+    search_sql = "SELECT * FROM empLeave"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql)
+    allemp = cursor.fetchall()
+    if allemp:
+        return render_template('Leave.html', allemp = allemp)
+
     return render_template('Leave.html')
 
 @app.route("/Add_Leave", methods=['GET', 'POST'])
