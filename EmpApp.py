@@ -126,7 +126,7 @@ def addEmployee():
     search_sql = "SELECT eid FROM employee ORDER BY eid DESC"
     cursor = db_conn.cursor()
 
-    cursor.execute(search_sql, (eid))
+    cursor.execute(search_sql, ())
     existing_userID = cursor.fetchone()
     eid = 1000
     #detect to search existing user#
