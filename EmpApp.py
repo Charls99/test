@@ -33,7 +33,10 @@ table = 'employee'
 def index():
     return render_template('Profile.html')
 
+@app.route("/Profile")
+def profile():
 
+    return render_template("Profile.html")
 
 
 @app.route("/Employees")
