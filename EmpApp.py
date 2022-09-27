@@ -329,7 +329,7 @@ def updatePaidStatus(eid):
     cursor = db_conn.cursor()
     cursor.execute(update_sql, (status, eid))
     db_conn.commit()
-    return redirect(url_for(salaryList))
+    return redirect(url_for('salaryList'))
 
 
 @app.context_processor
