@@ -104,13 +104,13 @@
                                                 <!-- get user from SQL-->
                                             </select>
                                         </div>
-                                        <label>Pay Date: </label>
+                                        <label>Month: </label>
                                         <div class="form-group">
                                             <div class='input-group date' id=''>
-                                                <input type='text' name="datetime" class="form-control mydatetimepicker" placeholder="Month" />
+                                                <input type='text' name="month" class="form-control mydatetimepicker" placeholder="Month" />
                                             </div>
                                         </div>
-                                        <div class="form-group col-md-4 m-t-10">
+                                        <div class="form-group">
                                             <label>Final Salary</label>
                                             <input type="text" class="form-control form-control-line" name="total_paid" value="" required>
                                         </div>
@@ -123,9 +123,9 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <input type="hidden" name="id" value="" class="form-control" id="recipient-name1">
+                                        <input type="hidden" name="pay_id" value="" class="form-control" id="recipient-name1">
                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                        <button type="submit" id="attendanceUpdate" class="btn btn-success">Submit</button>
+                                        <button type="submit" id="generatePayslip" class="btn btn-success">Submit</button>
                                     </div>
                                 </form>
                             </div>

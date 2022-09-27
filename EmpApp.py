@@ -255,7 +255,7 @@ def addLeave():
 @app.route("/Salary_List")
 def salaryList(): 
     
-    search_sql = "SELECT * FROM salary"
+    search_sql = "SELECT * FROM paySalary"
     cursor = db_conn.cursor()
 
     cursor.execute(search_sql)
@@ -299,6 +299,20 @@ def addSalary():
 
 @app.route("/Generate_Salary")
 def generateSalary(): 
+    if request.method == 'POST':
+       #add userdata when press submit button#
+       emid = request.form['emid']
+       month = request.form['month']
+       total_paid = request.form['total_paid']
+       status = "Process"
+       paidType = request.form['paidType']
+       pay_id = request.form['pay_id']
+       
+       insert_sql = "INSERT INTO paySalary VALUES (%s, %s, %s, %s, %s, %s)"
+       cursor = db_conn.cursor()
+       cursor.execute(insert_sql, (pay_id, emid, month, total_paid, status, paidType))
+       db_conn.commit()
+
     search_sql = "SELECT * FROM employee"
     cursor = db_conn.cursor()
 
