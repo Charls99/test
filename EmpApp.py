@@ -225,7 +225,7 @@ def singleAttendance(id):
     cursor.execute(search_sql, (id))
     attendance_emp = cursor.fetchone()
 
-    search_sql = "SELECT * FROM employee where emid = %s"
+    search_sql = "SELECT * FROM employee where eid = %s"
     cursor = db_conn.cursor()
 
     cursor.execute(search_sql, (attendance_emp[1]))
