@@ -320,16 +320,15 @@ def generateSalary():
     allemp = cursor.fetchall()
     return render_template('Generate_Salary.html', allemp=allemp)
 
-@app.route("/Update_PaidStatus/<eid>", methods=['GET', 'POST'])
+@app.route("/Update_PaidStatus/<eid>")
 def updatePaidStatus(eid): 
-    if request.method == 'POST':
        #add userdata when press submit button#
-       status = "Paid"
+    status = "Paid"
        
-       update_sql = "UPDATE paySalary SET status = %s where emid = %s"
-       cursor = db_conn.cursor()
-       cursor.execute(update_sql, (status, eid))
-       db_conn.commit()
+    update_sql = "UPDATE paySalary SET status = %s where emid = %s"
+    cursor = db_conn.cursor()
+    cursor.execute(update_sql, (status, eid))
+    db_conn.commit()
     return salaryList()
 
 
