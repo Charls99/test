@@ -320,7 +320,7 @@ def generateSalary():
     allemp = cursor.fetchall()
     return render_template('Generate_Salary.html', allemp=allemp)
 
-@app.route("/UpdatePaidStatus/<eid>", methods=['GET', 'POST'])
+@app.route("/UpdatePaidStatus/<eid>")
 def updatePaidStatus(eid): 
     #add userdata when press submit button#
     status = "Paid"
@@ -329,7 +329,7 @@ def updatePaidStatus(eid):
     cursor = db_conn.cursor()
     cursor.execute(update_sql, (status, eid))
     db_conn.commit()
-    return salaryList()
+    return redirect(url_for(salaryList))
 
 
 @app.context_processor
