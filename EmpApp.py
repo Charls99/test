@@ -275,6 +275,39 @@ def rejectLeave(eid):
     db_conn.commit()
     return redirect(url_for('leave'))
 
+@app.route("/Single_Leave/<eid>")
+def singleEmployee(eid):
+    #Using %s to Prevent SQL Injection#
+    search_sql = "SELECT * FROM employee where eid = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql, (eid))
+    single_emp = cursor.fetchone()
+
+    search_sql = "SELECT * FROM empLeave where emid = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql, (eid))
+    leave_emp = cursor.fetchone()
+
+    return render_template('Single_Employee.html', single_emp = single_emp, leave_emp = leave_emp)
+
+@app.route("/Update_Leave", methods=['GET', 'POST'])
+def updateLeave():
+    if request.method == 'POST':
+       #add userdata when press submit button#
+       em_id = request.form['em_id']
+       leave_type = request.form['leave_type']
+       start_date = request.form['start_date']
+       end_date = request.form['end_date']
+       reason = request.form['reason']
+    
+       update_sql = "UPDATE empLeave SET leave_type = %s, start_date = %s, end_date = %s, reason = %s where eid = %s"
+       cursor = db_conn.cursor()
+       cursor.execute(update_sql, (leave_type, start_date, end_date, reason, eid))
+       db_conn.commit()
+    return leave()
+
 @app.route("/Salary_List")
 def salaryList(): 
     

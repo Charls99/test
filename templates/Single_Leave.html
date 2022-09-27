@@ -52,77 +52,85 @@
             <!-- Sidebar scroll-->
             {{ sidebar() }}
             <!-- End Sidebar scroll-->
-        </aside>
-        <div class="page-wrapper">
+        </aside>         <div class="page-wrapper">
             <div class="message"></div>
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor"><i class="fa fa-clone" style="color:#1976d2"> </i> Application</h3>
+                    <h3 class="text-themecolor">Leave</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Leave Application</li>
+                        <li class="breadcrumb-item active">Leave</li>
                     </ol>
                 </div>
             </div>
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
             <div class="container-fluid">
+
                 <div class="row m-b-10">
-
                     <div class="col-12">
-                        <button type="button" class="btn btn-info"><i class="fa fa-plus"></i><a href="Add_Leave" class="text-white"><i class="" aria-hidden="true"></i> Add Leave </a></button>
+                        <button type="button" class="btn btn-info"><i class="fa fa-plus"></i><a href="{{url_for('leave')}}" class="text-white"><i class="" aria-hidden="true"></i>  Leave Application</a></button>
                     </div>
-
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="card card-outline-info">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">
-                                    Application List
-                                </h4>
+                                <h4 class="m-b-0 text-white"> Leave </h4>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive ">
-                                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Employee Name</th>
-                                                <th>PIN</th>
-                                                <th>Leave Type</th>
-                                                <th>Start Date</th>
-                                                <th>End Date</th>
-                                                <th>Leave Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
+                                <form method="post" action="/Update_Leave" id="holidayform" enctype="multipart/form-data">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label>Employee</label>
+                                            <select class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1" name="em_id" disabled>
 
-                                        <tbody>
-                                            {% for leave in allleave %}
-                                            <tr style="vertical-align:top">
-                                                <td><span>{{ getEmpName(leave[1]) }}</span></td>
-                                                <td>{{leave[1]}}</td>
-                                                <td>{{leave[2]}}</td>
-                                                <td>{{leave[3]}}</td>
-                                                <td>{{leave[4]}}</td>
-                                                <td>{{leave[5]}}</td>
+                                                <option value="">Select Here</option>
+                                                {% if single_emp %}
+                                                <option value="{{ single_emp[2] }}">{{ single_emp[0] }} {{ single_emp[1] }}</option>
 
-                                                <td class="jsgrid-align-center">
+                                                <!-- get user from SQL-->
+                                            </select>
+                                            <input type="hidden" name="em_id" value="{{single_emp[2]}}">
+                                            {% endif %}
+                                        </div>
+                                        {% if leave_emp %}
+                                        <div class="form-group">
+                                            <label>Leave Type</label>
+                                            <select class="form-control custom-select" tabindex="1" name="leave_type" id="leave_type" required>
+                                                <option value="{{ leave_emp[2] }}">{{ leave_emp[2] }}</option>
+                                                <option value="Leave without Pay">Leave without Pay</option>
+                                                <option value="Optional Leave">Optional Leave</option>
+                                                <option value="Public Holiday">Public Holiday</option>
+                                                <option value="Earned leave">Earned leave</option>
+                                                <option value="Paternal Leave">Paternal Leave</option>
+                                                <option value="Maternity Leave">Maternity Leave</option>
+                                                <option value="Sick Leave">Sick Leave</option>
+                                                <option value="Casual Leave">Casual Leave</option>
+                                            </select>
+                                        </div>
+                                        <label>Date: </label>
+                                        <div id="" class="input-group date">
+                                            <input name="start_date" class="form-control mydatetimepickerFull" value="{{ leave_emp[3] }}" required>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                        <label>End Date: </label>
+                                        <div id="" class="input-group date">
+                                            <input name="end_date" class="form-control mydatetimepickerFull" value="{{ leave_emp[4] }}" required>
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Reason</label>
+                                            <textarea class="form-control" value="{{ leave_emp[6] }}" name="reason" id="message-text1"></textarea>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    <div class="modal-footer">
 
-                                                    <a href="{{url_for('approveLeave', eid = leave[1])}}" title="Approve" class="btn btn-sm btn-success waves-effect waves-light Status" >Approve</a>
-                                                    <a href="{{url_for('rejectLeave', eid = leave[1])}}" title="Reject" class="btn btn-sm btn-danger waves-effect waves-light  Status">Reject</a>
-                                                    <br>
-
-                                                    <a href="" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light leaveapp" data-id="4"><i class="fa fa-pencil-square-o"></i></a>
-
-                                                </td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -161,10 +169,6 @@
     <!-- Chart JS -->
     <!-- CHART COMMENTED....UNCOMMENT WHEN DONE -->
     <!-- <script src="static/assets/js/dashboard1.js"></script> -->
-
-
-
-
 
     <script src="static/assets/plugins/moment/moment.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
@@ -208,7 +212,7 @@
     <script type="text/javascript" src="static/assets/plugins/calendar/dist/cal-init.js"></script>
 
     <script type="text/javascript">
-        $(function () {
+$(function () {
             $('.mydatetimepicker').datepicker({
             format: "mm-yyyy",
             viewMode: "years",
@@ -219,100 +223,10 @@
             $('.mydatetimepickerFull').datepicker({
             format: "yyyy-mm-dd"
             });
-        });
-    </script>
-    <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "columnDefs": [{
-                    "visible": false,
-                    "targets": 2
-                }],
-                "order": [
-                    [2, 'asc']
-                ],
-                "displayLength": 25,
-                "drawCallback": function(settings) {
-                    var api = this.api();
-                    var rows = api.rows({
-                        page: 'current'
-                    }).nodes();
-                    var last = null;
-                    api.column(2, {
-                        page: 'current'
-                    }).data().each(function(group, i) {
-                        if (last !== group) {
-                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
-                            last = group;
-                        }
-                    });
-                }
-            });
-            // Order by the grouping
-            $('#example tbody').on('click', 'tr.group', function() {
-                var currentOrder = table.order()[0];
-                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
-                    table.order([2, 'desc']).draw();
-                } else {
-                    table.order([2, 'asc']).draw();
-                }
-            });
-        });
-    });
-    $(function () {
-  $("#datepicker").datepicker({
-        autoclose: true,
-        todayHighlight: true
-  }).datepicker('update', new Date());
-});
-    jQuery('.mydatepicker, #datepicker').datepicker();
-    jQuery('#datepicker-autoclose').datepicker({
-        autoclose: true,
-        todayHighlight: true
-    });
-    $('#example23').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
-    $('#single-input').clockpicker({
-        placement: 'bottom',
-        align: 'left',
-        autoclose: true,
-        'default': 'now'
-    });
-    $('#single-input').clockpicker({
-        placement: 'bottom',
-        align: 'left',
-        autoclose: true,
-        'default': 'now'
-    });
-    $('.clockpicker').clockpicker({
-        donetext: 'Done',
-    }).find('input').change(function() {
-        console.log(this.value);
-    });
-    $('#check-minutes').click(function(e) {
-        // Have to stop propagation here
-        e.stopPropagation();
-        input.clockpicker('show').clockpicker('toggleView', 'minutes');
-    });
+        });</script>
 
 
 
-
-    $(function() {
-    $('#datetimepicker2').datetimepicker({
-      language: 'en',
-      pick12HourFormat: true
-    });
-  });
-
-    $(".select2").select2();
-    </script>
 
     <script src="static/assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
