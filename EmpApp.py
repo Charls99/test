@@ -297,6 +297,7 @@ def singleLeave(id):
 def updateLeave():
     if request.method == 'POST':
        #add userdata when press submit button#
+       id = request.form['id']
        em_id = request.form['em_id']
        leave_type = request.form['leave_type']
        start_date = request.form['start_date']
