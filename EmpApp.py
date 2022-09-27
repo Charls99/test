@@ -234,9 +234,9 @@ def leave():
     cursor = db_conn.cursor()
 
     cursor.execute(search_sql)
-    allemp = cursor.fetchall()
-    if allemp:
-        return render_template('Leave.html', allemp = allemp)
+    allleave = cursor.fetchall()
+    if allleave:
+        return render_template('Leave.html', allleave = allleave)
 
     return render_template('Leave.html')
 

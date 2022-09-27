@@ -52,7 +52,8 @@
             <!-- Sidebar scroll-->
             {{ sidebar() }}
             <!-- End Sidebar scroll-->
-        </aside><div class="page-wrapper">
+        </aside>
+        <div class="page-wrapper">
             <div class="message"></div>
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
@@ -100,13 +101,13 @@
                                         </thead>
 
                                         <tbody>
-                                            <!--{% for leave in allleave %}-->
+                                            {% for leave in allleave %}
                                             <tr style="vertical-align:top">
-                                                <td><span><!--{{ getEmpName(leave[1]) }}--></span></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td><span>{{ getEmpName(leave[1]) }}</span></td>
+                                                <td>{{leave[1]}}</td>
+                                                <td>{{leave[2]}}</td>
+                                                <td>{{leave[3]}}</td>
+                                                <td>{{leave[4]}}</td>
                                                 <td> No Apply </td>
 
                                                 <td class="jsgrid-align-center">
