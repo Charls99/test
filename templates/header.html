@@ -50,8 +50,9 @@
                                     {% endif %}
                                 </div>
                                 <div class="u-text">
-                                    <h4>Thom Anderson</h4>
-                                    <p class="text-muted">thoma@mail.com</p>
+                                    {% if user %}
+                                    <h4>{{user}}</h4>
+                                    {% endif %}
                                 </div>
                         </li>
                         <li role="separator" class="divider"></li>
