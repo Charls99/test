@@ -104,10 +104,10 @@ def addEmployee():
             print("Data inserted in MySQL RDS... uploading image to S3...")
             s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=image_url.read())
             #copy obj and change meta#
-            s3_object = s3.Object(custombucket, emp_image_file_name_in_s3)
+            s3_object = s3.Object(bucket, emp_image_file_name_in_s3)
             #change metadata#
-            s3_object.metadata.update= {"Content-Type": "image/png"}
-            s3_object.copy_from(CopySource={'Bucket':custombucket, 'Key':emp_image_file_name_in_s3}, Metadata=s3_object.metadata, MetadataDirective='REPLACE')
+            #s3_object.metadata.update= {"Content-Type": "image/png"}#
+            s3_object.copy_from(CopySource={'Bucket':bucket, 'Key':emp_image_file_name_in_s3}, MetadataDirective='REPLACE', ContentType= "image/png")
           
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
             s3_location = (bucket_location['LocationConstraint'])
