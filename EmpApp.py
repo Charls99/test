@@ -42,7 +42,7 @@ def login():
        
        hr_img = "https://yvonne-test.s3.amazonaws.com/Team/staff_{0}.jpg".format(id)
 
-    return render_template("Profile.html", user = user, hr_img = hr_img)
+    return render_template("Index.html", user = user, hr_img = hr_img)
 
 
 @app.route("/Employees")
