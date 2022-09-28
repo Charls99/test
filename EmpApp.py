@@ -92,23 +92,16 @@ def addEmployee():
         cursor.execute(insert_sql, (sid, emid, typeid, total))
         db_conn.commit()
 
-        # this will return a tuple of root and extension
-        split_tup = os.path.splitext(image_url)
-        print(split_tup)
-  
-        # extract the file name and extension
-        file_name = split_tup[0]
-        file_extension = split_tup[1]
   
         #Set name for listout#
         emp_name = "" + fname + " " + lname
         # Uplaod image file in S3 #
-        emp_image_file_name_in_s3 = "upload/emp-id-" + str(eid) + "_image_file" + file_extension
+        emp_image_file_name_in_s3 = "upload/emp-id-" + str(eid) + "_image_file.png" 
         s3 = boto3.resource('s3')
 
         try:
             print("Data inserted in MySQL RDS... uploading image to S3...")
-            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=image_url)
+            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=image_url.read())
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
             s3_location = (bucket_location['LocationConstraint'])
 

@@ -55,6 +55,31 @@ def profile():
     profiles = [profile_image_staff_1,profile_image_staff_2,profile_image_staff_3]
     return render_template("Profile.html", profile = profiles)
 
+	emp_image_file_name_in_s3 = "upload/emp-id-" + str(eid) + "_image_file" + file_extension
+        s3 = boto3.resource('s3')
+
+        try:
+            print("Data inserted in MySQL RDS... uploading image to S3...")
+            s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=image_url)
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            s3_location = (bucket_location['LocationConstraint'])
+
+            if s3_location is None:
+                s3_location = ''
+            else:
+                s3_location = '-' + s3_location
+
+            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                s3_location,
+                custombucket,
+                emp_image_file_name_in_s3)
+
+        except Exception as e:
+            return str(e)
+
+       finally:
+        cursor.close()
+
 
 *remember set IAM role in EC2
 *at github need change the cd same as the respority
