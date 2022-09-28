@@ -57,7 +57,7 @@
             <div class="message"></div>
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-themecolor"><i class="fa fa-calendar-check-o" style="color:#1976d2"></i>Attendance</h3>
+                    <h3 class="text-themecolor"><i class="bi bi-calendar-date-check-o" style="color:#1976d2"></i>Attendance</h3>
                 </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
@@ -72,9 +72,9 @@
 
                 <div class="row m-b-10">
                     <div class="col-12">
-                        <button type="button" class="btn btn-info"><i class="fa fa-plus"></i><a href="Save_Attendance" class="text-white"><i class="" aria-hidden="true"></i> Add Attendance </a></button>
-                        <!--<button type="button" class="btn btn-primary"><i class="fa fa-bars"></i><a href="#" class="text-white" data-toggle="modal" data-target="#Bulkmodal"><i class="" aria-hidden="true"></i>  Add Bulk Attendance</a></button>
-                        <button type="button" class="btn btn-info"><i class="fa fa-plus"></i><a href="Attendance-Report" class="text-white"><i class="" aria-hidden="true"></i> Attendance Report </a></button>-->
+                        <button type="button" class="btn btn-info"><i class="bi bi-plus-lg"></i><a href="Save_Attendance" class="text-white"><i class="" aria-hidden="true"></i> Add Attendance </a></button>
+                        <!--<button type="button" class="btn btn-primary"><i class="bi bi-list"></i><a href="#" class="text-white" data-toggle="modal" data-target="#Bulkmodal"><i class="" aria-hidden="true"></i>  Add Bulk Attendance</a></button>
+                        <button type="button" class="btn btn-info"><i class="bi bi-plus-lg"></i><a href="Attendance-Report" class="text-white"><i class="" aria-hidden="true"></i> Attendance Report </a></button>-->
                     </div>
                 </div>
                 <div class="row">
@@ -105,7 +105,7 @@
                                                 <td>{{ attend[3] }}</td>
                                                 <td>{{ attend[4] }}</td>
                                                 <td class="jsgrid-align-center ">
-                                                    <a href="{{url_for('singleAttendance', id = attend[0])}}" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light" data-value="Approve"><i class="fa fa-pencil-square-o"></i></a>
+                                                    <a href="{{url_for('singleAttendance', id = attend[0])}}" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light" data-value="Approve"><i class="bi bi-pencil-square"></i></a>
                                                 </td>
                                             </tr>
                                             {% endfor %}
