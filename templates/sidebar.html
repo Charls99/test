@@ -6,14 +6,14 @@
     <div class="user-profile">
         <!-- User profile image -->
         <div class="profile-img">
-            <img src="{{hr_img}}" alt="user" />
+            <img src="static/assets/images/users/userav-min.png" alt="user" />
             <!-- this is blinking heartbit-->
             <!-- <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div> -->
         </div>
 
         <!-- User profile text-->
         <div class="profile-text">
-            <h5>{{user}}</h5>
+            <h5>Thom Anderson</h5>
         </div>
     </div>
     <!-- End User profile text-->
@@ -22,7 +22,7 @@
         <ul id="sidebarnav">
 
             <li>
-                <a href="{{url_for('index')}}"><i class="mdi mdi-clipboard"></i><span class="hide-menu">Profile </span></a>
+                <a href="{{url_for('profile')}}"><i class="mdi mdi-clipboard"></i><span class="hide-menu">Profile </span></a>
             </li>
             <li>
                 <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
@@ -62,15 +62,11 @@
                 </ul>
             </li>
             <li>
-                <a href="{{url_for('index')}}"><i class="mdi mdi-power"></i><span class="hide-menu">Logout </span></a>
+                <a href="{{url_for('profile')}}"><i class="mdi mdi-power"></i><span class="hide-menu">Logout </span></a>
             </li>
         </ul>
     </nav>
     <!-- End Sidebar navigation -->
 </div>
 
-{% endmacro %}
-
-{% macro footer() %}
-<footer class="footer"> © 2022 | Developed By Hermoso </footer>
 {% endmacro %}

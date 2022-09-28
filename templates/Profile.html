@@ -1,5 +1,5 @@
 ﻿{% from "header.html" import header%}
-{% from "LoginSidebar.html" import sidebar%}
+{% from "sidebar.html" import sidebar%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +54,7 @@
             <!-- Sidebar scroll-->
             {{ sidebar() }}
             <!-- End Sidebar scroll-->
-        </aside>
+        </aside>         
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Bread crumb and right sidebar toggle -->
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-
+            
             <div class="row d-flex justify-content-center align-items-center h-100 ml-1">
                 <div class="col-md-4">
 
@@ -85,17 +85,8 @@
                             </div>
                             <h4 class="mb-2">Chow Weng Hoong</h4>
                             <p class="text-muted mb-4">
-                                @HR Leader
+                                @Creative Leader
                             </p>
-
-                            <form method="post" action="/Login">
-                                <input type="hidden" name="id" value="1" class="form-control" id="recipient-name1">
-                                <input type="hidden" name="user" value="Chow Weng Hoong" class="form-control">
-                                <button type="submit" class="btn btn-primary btn-rounded btn-lg">
-                                    Login
-                                </button>
-                            </form>
-
 
                             <div class="d-flex justify-content-between text-center mt-5 mb-2">
                                 <p class="mb-4">
@@ -119,13 +110,6 @@
                             <p class="text-muted mb-4">
                                 @Web Designer
                             </p>
-                            <form method="post" action="/Login">
-                                <input type="hidden" name="id" value="2" class="form-control" id="recipient-name1">
-                                <input type="hidden" name="user" value="Cheong Kah Yee" class="form-control">
-                                <button type="submit" class="btn btn-primary btn-rounded btn-lg">
-                                    Login
-                                </button>
-                            </form>
 
                             <div class="d-flex justify-content-between text-center mt-5 mb-2">
                                 <p class="mb-4">
@@ -149,13 +133,6 @@
                             <p class="text-muted mb-4">
                                 @Web Developer
                             </p>
-                            <form method="post" action="/Login">
-                                <input type="hidden" name="id" value="3" class="form-control" id="recipient-name1">
-                                <input type="hidden" name="user" value="Tan Yi Ling" class="form-control">
-                                <button type="submit" class="btn btn-primary btn-rounded btn-lg">
-                                    Login
-                                </button>
-                            </form>
 
                             <div class="d-flex justify-content-between text-center mt-5 mb-2">
                                 <p class="mb-4">
@@ -169,7 +146,7 @@
                 </div>
             </div>
 
-            {{footer()}}
+            <footer class="footer"> © 2022 | Developed By GenIT Bangladesh </footer>
         </div>
     </div>
 

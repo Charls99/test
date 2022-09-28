@@ -33,16 +33,15 @@ table = 'employee'
 def index():
     return render_template('Profile.html')
 
-@app.route("/Login", methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-       #add userdata when press submit button#
-       id = request.form['id']
-       user = request.form['user']
-       
-       hr_img = "https://yvonne-test.s3.amazonaws.com/Team/staff_{0}.jpg".format(id)
-       render_template("sidebar.html", user = user, hr_img = hr_img)
-    return render_template("Index.html", user = user, hr_img = hr_img)
+@app.route("/Profile")
+def profile():
+    bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+    s3_location = (bucket_location['LocationConstraint'])
+    profile_image_staff_1 = "https://yvonne-test.s3.amazonaws.com/{0}".format('staff_1.jpg')
+    profile_image_staff_2 = "https://yvonne-test.s3.amazonaws.com/{0}".format('staff_2.jpg')
+    profile_image_staff_3 = "https://yvonne-test.s3.amazonaws.com/{0}".format('staff_3.jpg')
+    profiles = [profile_image_staff_1,profile_image_staff_2,profile_image_staff_3]
+    return render_template("Profile.html", profile = profiles)
 
 
 @app.route("/Employees")
