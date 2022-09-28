@@ -30,7 +30,7 @@ table = 'employee'
 
 # Creating a route that has both GET and POST request methods
 @app.route("/", methods=['GET', 'POST'])
-def index():
+def profile():
     return render_template('Profile.html')
 
 @app.route("/Employees")
