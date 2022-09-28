@@ -106,7 +106,6 @@ def addEmployee():
             #copy obj and change meta#
             s3_object = s3.Object(bucket, emp_image_file_name_in_s3)
             #change metadata#
-            #s3_object.metadata.update= {"Content-Type": "image/png"}#
             s3_object.copy_from(CopySource={'Bucket':bucket, 'Key':emp_image_file_name_in_s3}, MetadataDirective='REPLACE', ContentType= "image/png")
           
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
@@ -160,7 +159,9 @@ def singleEmployee(eid):
     cursor.execute(search_sql, (eid))
     salary_emp = cursor.fetchone()
 
-    return render_template('Single_Employee.html', single_emp = single_emp, salary_emp = salary_emp)
+    user_img = "https://yvonne-test.s3.amazonaws.com/upload/emp-id-{0}_image_file.png".format(eid)
+
+    return render_template('Single_Employee.html', single_emp = single_emp, salary_emp = salary_emp, user_img = user_img)
 
 @app.route("/Update_Employee", methods=['GET', 'POST'])
 def updateEmployee():
