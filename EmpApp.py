@@ -92,10 +92,18 @@ def addEmployee():
         cursor.execute(insert_sql, (sid, emid, typeid, total))
         db_conn.commit()
 
+        # this will return a tuple of root and extension
+        split_tup = os.path.splitext(image_url)
+        print(split_tup)
+  
+        # extract the file name and extension
+        file_name = split_tup[0]
+        file_extension = split_tup[1]
+  
         #Set name for listout#
         emp_name = "" + fname + " " + lname
         # Uplaod image file in S3 #
-        emp_image_file_name_in_s3 = "emp-id-" + str(eid) + "_image_file.jpg"
+        emp_image_file_name_in_s3 = "upload/emp-id-" + str(eid) + "_image_file" + file_extension
         s3 = boto3.resource('s3')
 
         try:
