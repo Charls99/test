@@ -42,7 +42,13 @@
                     <ul class="dropdown-user">
                         <li>
                             <div class="dw-user-box">
-                                <div class="u-img"><img src="static/assets/images/users/userav-min.png" alt="user"></div>
+                                <div class="u-img">
+                                    {% if hr_img %}
+                                    <img src="{{hr_img}}" alt="user">
+                                    {% else %}
+                                    <img src="static/assets/images/users/userav-min.png" alt="user">
+                                    {% endif %}
+                                </div>
                                 <div class="u-text">
                                     <h4>Thom Anderson</h4>
                                     <p class="text-muted">thoma@mail.com</p>
